@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team — OneAM</title>
+<meta name="description" content="Whether you're a business looking for working capital, a capital provider, or a referral partner — we want to hear from you.">
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="components.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+  background:
+    linear-gradient(rgba(20, 20, 60, 0.85), rgba(20, 20, 60, 0.85)),
+    url('image_assets/machine.jpg') center / cover no-repeat;
+  padding: clamp(60px, 9vw, 100px) 0;
+  color: var(--white);
+}
+
+.page-header h1 { margin-bottom: 1rem; color: var(--white); }
+
+.page-header p {
+  white-space: nowrap;
+  line-height: 1.8;
+  color: var(--white);
+}
+
+/* ========================================
+   LEADERSHIP SECTION
+   ======================================== */
+.leadership {
+  background: var(--color-bg-subtle);
+  padding: var(--section-pad) 0;
+  text-align: center;
+}
+
+.leadership h2 {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(32px, 4vw, 48px) clamp(20px, 3vw, 32px);
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.team-member[data-key] { cursor: pointer; }
+
+.team-avatar {
+  width: clamp(140px, 16vw, 192px);
+  height: clamp(140px, 16vw, 192px);
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  color: var(--white);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.team-member h3 {
+  font-size: var(--fs-p1);
+  font-weight: 700;
+  margin: 0;
+  color: var(--navy);
+}
+
+.team-member .team-title {
+  font-size: var(--fs-p2);
+  color: var(--navy);
+  opacity: 0.65;
+  margin: -0.35rem 0 0;
+}
+
+/* ========================================
+   BIO MODAL
+   ======================================== */
+.bio-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.bio-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bio-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 60, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.bio-modal__card {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card-lg);
+  padding: clamp(28px, 3vw, 44px) clamp(36px, 4.5vw, 56px);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.bio-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--navy);
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
+  padding: 0;
+}
+
+.bio-modal__close:hover { opacity: 1; }
+
+.bio-modal__card > h3 {
+  margin-bottom: 0.2rem;
+  color: var(--navy);
+}
+
+.bio-modal__role {
+  font-size: var(--fs-p2);
+  color: var(--navy);
+  opacity: 0.65;
+  margin: 0 0 1rem;
+}
+
+.bio-modal__bio {
+  font-size: var(--fs-p2);
+  line-height: 1.8;
+  color: var(--navy);
+  opacity: 0.85;
+}
+
+.bio-modal__bio p + p { margin-top: 0.9rem; }
+
+
+/* ========================================
+   FINAL CTA
+   ======================================== */
+.final-cta {
+  background: var(--white);
+  padding: var(--section-pad) 0;
+  text-align: center;
+}
+
+.final-cta h2 { margin-bottom: 1rem; }
+
+.final-cta .cta-subtext {
+  font-size: var(--fs-p1);
+  line-height: 1.8;
+  color: var(--navy);
+  margin: 0 0 2rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="Resources.html">Resources</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+
+      <div class="nav-cta" id="navCta">
+        <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="insights.html">Insights</a>
+  <a href="contact.html">Contact</a>
+  <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+</div>
+
+<!-- =============================================
+     PAGE HEADER
+     ============================================= -->
+<section class="page-header">
+  <div class="container reveal">
+    <h1>Builders, operators, and the people behind the new industry standard.</h1>
+    <p>The OneAM team brings decades of experience across finance and technology.</p>
+  </div>
+</section>
+
+<!-- =============================================
+     LEADERSHIP
+     ============================================= -->
+<section class="leadership">
+  <div class="container reveal">
+    <h2>Leadership</h2>
+    <div class="team-grid">
+      <div class="team-member" data-key="ksusha-mccormick">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/c0bc952c-f0ba-4331-9b33-3dad80e228de/ksusha-mccormick.jpg" alt="Ksusha McCormick"></div>
+        <h3>Ksusha McCormick</h3>
+        <p class="team-title">CEO</p>
+      </div>
+      <div class="team-member" data-key="charlotte-ng">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/89b4b145-6e00-4a09-a719-1dcd8f85180e/charlotte-ng.jpg" alt="Charlotte Ng"></div>
+        <h3>Charlotte Ng</h3>
+        <p class="team-title">Chief Product Officer</p>
+      </div>
+      <div class="team-member" data-key="shanthan-subramaniam">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/c9a258cb-d3f9-4a57-abb8-8301f2fb002d/shanthan-subramaniam.jpg" alt="Shanthan Subramaniam"></div>
+        <h3>Shanthan Subramaniam</h3>
+        <p class="team-title">CTO</p>
+      </div>
+      <div class="team-member" data-key="john-tsai">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/776f1bfb-0c06-4cf2-b980-5e34807e7cf6/Tsai-7415-Retouched_cropped.jpg" alt="John Tsai"></div>
+        <h3>John Tsai, PhD</h3>
+        <p class="team-title">Analytics</p>
+      </div>
+      <div class="team-member" data-key="sebastian-camacho">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/7afcde3a-acbe-4da5-93c5-84a2892f6ded/Camacho-1243-Retouched.jpg" alt="Sebastian Camacho"></div>
+        <h3>Sebastian Camacho</h3>
+        <p class="team-title">Origination</p>
+      </div>
+      <div class="team-member" data-key="dhati-chandrasekhar">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/e016fad4-9728-4101-bfe7-8e8a533ed6ad/Dhati-Chandrasekhar.jpg" alt="Dhati Chandrasekhar"></div>
+        <h3>Dhati Chandrasekhar</h3>
+        <p class="team-title">Operations</p>
+      </div>
+      <div class="team-member" data-key="matthew-selick">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/1db7a127-c7e1-418c-8be8-a1de8be74942/Selick-4314.jpg" alt="Matthew Selick"></div>
+        <h3>Matthew Selick</h3>
+        <p class="team-title">Client Services</p>
+      </div>
+      <div class="team-member" data-key="alec-mackanic">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/891952ad-e6d2-44cb-b8e8-5af003e34fe9/Alec-Mackanic+copy.jpg" alt="Alec Mackanic"></div>
+        <h3>Alec Mackanic</h3>
+        <p class="team-title">AI/ML</p>
+      </div>
+      <div class="team-member" data-key="charles-hedden">
+        <div class="team-avatar"><img src="https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/85dc340a-0041-4cf0-8fbb-43531f7faf03/Charles.jpg" alt="Charles Hedden"></div>
+        <h3>Charles Hedden</h3>
+        <p class="team-title">Fractional CFO</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">EB</div>
+        <h3>Elise Brown</h3>
+        <p class="team-title">Fractional CMO</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FINAL CTA
+     ============================================= -->
+<section class="final-cta" id="get-started">
+  <div class="container reveal">
+    <h2>Want to talk to someone on the team?</h2>
+    <p class="cta-subtext">Book a demo or reach out directly.</p>
+    <a href="#" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" class="footer-logo">
+    <p class="footer-tagline">The new industry standard for early pay. Built to fund your operations and fuel your growth.</p>
+
+    <div class="footer-links">
+      <a href="about.html">About</a><span class="footer-sep">&middot;</span>
+      <a href="industries.html">Industries</a><span class="footer-sep">&middot;</span>
+      <a href="Resources.html">Resources</a><span class="footer-sep">&middot;</span>
+      <a href="insights.html">Insights</a><span class="footer-sep">&middot;</span>
+      <a href="team.html">Team</a><span class="footer-sep">&middot;</span>
+      <a href="contact.html">Contact</a><span class="footer-sep">&middot;</span>
+      <a href="#">Privacy</a><span class="footer-sep">&middot;</span>
+      <a href="#">Terms</a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:info@oneam.us">info@oneam.us</a><span class="footer-sep">&middot;</span>
+      <span>New York, NY</span><span class="footer-sep">&middot;</span>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 OneAM. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="bio-modal" id="bioModal" role="dialog" aria-modal="true" aria-labelledby="bioModalName">
+  <div class="bio-modal__overlay"></div>
+  <div class="bio-modal__card">
+    <button class="bio-modal__close" aria-label="Close">&times;</button>
+    <h3 id="bioModalName"></h3>
+    <p class="bio-modal__role" id="bioModalRole"></p>
+    <div class="bio-modal__bio" id="bioModalBio"></div>
+  </div>
+</div>
+
+<script src="components.js"></script>
+<script>
+const teamData = {
+  'ksusha-mccormick': {
+    name: 'Ksusha McCormick',
+    title: 'Chief Executive Officer',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/c0bc952c-f0ba-4331-9b33-3dad80e228de/ksusha-mccormick.jpg',
+    bio: [
+      'Ksusha McCormick is the Co-Founder and CEO of OneAM, bringing deep expertise in markets, financial infrastructure, trade finance, and business building to her role. She was previously CEO of Decameron Technologies, a front-office pricing and risk analytics platform for fixed-income portfolios.',
+      'Ksusha also served as Chief Strategy Officer at Raistone, a provider of working capital solutions, and as Managing Director at Seaport Global, where she led asset management initiatives. Earlier in her career, she was Vice President at Goldman Sachs in the private wealth management group and a derivatives trader at the hedge fund JWM Partners and at Morgan Stanley.',
+      'She holds a BA from Columbia College and an MBA from The Wharton School.'
+    ]
+  },
+  'charlotte-ng': {
+    name: 'Charlotte Ng',
+    title: 'Chief Product Officer',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/89b4b145-6e00-4a09-a719-1dcd8f85180e/charlotte-ng.jpg',
+    bio: [
+      'Charlotte Ng is the Co-Founder and CPO of OneAM, bringing deep expertise in greenfield projects across payments infrastructure, digital payments technology, and building two-sided networks. She was previously Chief Product Officer at Raistone, where she led the full product development lifecycle, shaping the company\'s product vision, strategy, and execution.',
+      'Before that, Charlotte held multiple leadership roles at Mastercard, driving product development and innovation across Global Products, Real-Time Payments, and Bill Pay Solutions. She also worked on the investment team at Cohen & Steers, an $86 billion equity fund, conducting in-depth research on Asian property markets.',
+      'She holds a B.Sc. from NYU Stern School of Business, a Master\'s from the University of Oxford, and an MBA from Columbia Business School.'
+    ]
+  },
+  'shanthan-subramaniam': {
+    name: 'Shanthan Subramaniam',
+    title: 'Chief Technology Officer',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/c9a258cb-d3f9-4a57-abb8-8301f2fb002d/shanthan-subramaniam.jpg',
+    bio: [
+      'Shanthan Subramaniam is the Chief Technology Officer at OneAM, bringing deep expertise in digital transformation, payment solutions, and cybersecurity. He leads IT, engineering, and technical operations for OneAM\'s cloud-based digital asset management platform.',
+      'Prior to joining OneAM, Shanthan served as Senior Vice President at Mastercard, where he launched real-time payment products, managed cross-functional teams, and drove the global expansion of digital solutions. He also founded Envisage Solutions, advising fintech companies on lean product development and engineering transformations.',
+      'He holds a Master of Science in Biotechnology from Nanyang Technological University and a Bachelor of Science in Computer Engineering from the University of Technology Malaysia.'
+    ]
+  },
+  'john-tsai': {
+    name: 'John C. Tsai, PhD',
+    title: 'Analytics',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/776f1bfb-0c06-4cf2-b980-5e34807e7cf6/Tsai-7415-Retouched_cropped.jpg',
+    bio: [
+      'John C. Tsai brings over 20 years of experience in investment management, financial markets, and risk analytics. He supports the firm\'s strategy and product development across fixed income and capital markets.',
+      'Previously, John was a founding partner at Redwood Bay Investors and founder/CEO of Aris Research and Technology, later integrated into Decameron Technologies. He also held leadership roles at Barclays Global Investors, JWM Partners, and Long-Term Capital Management.',
+      'He holds S.B., S.M., and Ph.D. degrees in physics from the Massachusetts Institute of Technology (MIT).'
+    ]
+  },
+  'sebastian-camacho': {
+    name: 'Sebastian Camacho',
+    title: 'Founding Origination Lead',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/7afcde3a-acbe-4da5-93c5-84a2892f6ded/Camacho-1243-Retouched.jpg',
+    bio: [
+      'Sebastian Camacho is the Founding Origination Lead at OneAM, bringing deep expertise in finance, technology, and client partnerships. In this role, he helps businesses access flexible working capital solutions while building long-term relationships rooted in service.',
+      'Before joining OneAM, Sebastian held roles at The Siegfried Group and Wizeline, where he partnered with CFOs and CTOs to execute strategic initiatives and deliver innovative digital solutions.',
+      'He holds a bachelor\'s degree from High Point University and is fully bilingual in English and Spanish.'
+    ]
+  },
+  'dhati-chandrasekhar': {
+    name: 'Dhati Chandrasekhar',
+    title: 'Operations Lead',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/e016fad4-9728-4101-bfe7-8e8a533ed6ad/Dhati-Chandrasekhar.jpg',
+    bio: [
+      'Dhati Chandrasekhar is the Operations Lead at OneAM, bringing deep expertise in accounts receivable financing and fintech innovation. She leads client onboarding, payment processing, and supports both customer and funder engagement across the platform.',
+      'Prior to joining OneAM, Dhati was a Senior Product Manager at Raistone, where she built foundational transaction and payments infrastructure. She also held multiple roles at Mastercard, driving product development in real-time payments, platform integration, digital optimization, and customer strategy.',
+      'She holds a Bachelor\'s degree in Economics from the University of Chicago and an MBA from the Kelley School of Business at Indiana University.'
+    ]
+  },
+  'matthew-selick': {
+    name: 'Matthew Selick',
+    title: 'Client Services & Revenue Operations Lead',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/1db7a127-c7e1-418c-8be8-a1de8be74942/Selick-4314.jpg',
+    bio: [
+      'Matthew Selick is the Client Services and Revenue Operations Lead at OneAM, bringing deep expertise in process optimization and operational strategy. In this role, he leads relationship management and client-facing initiatives, building operational frameworks that drive efficiency.',
+      'Before joining OneAM, Matthew held the role of Vice President of Strategy at Raistone, where he orchestrated the strategic planning process and developed business intelligence. He also worked at several technology startups including TrueCar, contributing to the successful launch of new commercial products. Earlier in his career, he worked in aviation consulting at Plane View Partners.',
+      'Matthew holds a Bachelor of Business Administration in International Business with honors from The George Washington University.'
+    ]
+  },
+  'alec-mackanic': {
+    name: 'Alec Mackanic',
+    title: 'Data Scientist & Full-Stack Engineer',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/891952ad-e6d2-44cb-b8e8-5af003e34fe9/Alec-Mackanic+copy.jpg',
+    bio: [
+      'Alec Mackanic is the Data Scientist and Full-Stack Engineer at OneAM, bringing deep expertise in data science, quantitative modeling, and analytics. He leads the integration of quantitative models and exploratory data analysis to support data-driven decision-making across the firm.',
+      'Before joining OneAM, Alec contributed to AI training and development at DataAnnotation, specializing in human reinforcement learning for programming and data analytics. He also taught computer science, covering everything from introductory fundamentals to machine learning.',
+      'He holds a Bachelor\'s degree in Computer Engineering from Boston University.'
+    ]
+  },
+  'charles-hedden': {
+    name: 'Charles Hedden',
+    title: 'Fractional CFO',
+    photo: 'https://images.squarespace-cdn.com/content/v1/6731da7e7138e16f52f9a6ca/85dc340a-0041-4cf0-8fbb-43531f7faf03/Charles.jpg',
+    bio: [
+      'Charles Hedden is a Fractional CFO at OneAM, bringing deep expertise in strategic finance, cross-border M&A, operational leadership, and scalable systems. He leads financial strategy and operational scalability initiatives across the firm.',
+      'Previously, Charles held leadership and advisory roles spanning corporate finance, operations, and investment banking. He contributed to global deal execution at Lincoln International, led multifamily portfolio management at Freddie Mac, and advised multinational clients through his firm, Fair Water Consulting.',
+      'He holds an MBA from The Wharton School, an MA in International Studies from the Lauder Institute at the University of Pennsylvania, and an MS in Finance from George Washington University.'
+    ]
+  }
+};
+
+const modal   = document.getElementById('bioModal');
+const nameEl  = document.getElementById('bioModalName');
+const roleEl  = document.getElementById('bioModalRole');
+const bioEl   = document.getElementById('bioModalBio');
+
+function openModal(key) {
+  const p = teamData[key];
+  if (!p) return;
+  nameEl.textContent = p.name;
+  roleEl.textContent = p.title;
+  bioEl.innerHTML = p.bio.map(t => `<p>${t}</p>`).join('');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.team-member[data-key]').forEach(el => {
+  el.addEventListener('click', () => openModal(el.dataset.key));
+});
+
+modal.querySelector('.bio-modal__close').addEventListener('click', closeModal);
+modal.querySelector('.bio-modal__overlay').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About OneAM | The New Industry Standard for Early Pay</title>
+<meta name="description" content="OneAM is a New York-based company setting a new industry standard in early pay for American businesses. Learn why we exist, what we do, and who's behind us.">
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="components.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   HERO — split layout, image right
+   ======================================== */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 3vw, 48px);
+  padding-left: clamp(80px, 8vw, 140px);
+}
+
+.hero h1 { margin-bottom: 2rem; }
+
+.hero p {
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  clip-path: url(#clip-image-right);
+}
+
+.hero-image img:not(.hero-image__watermark) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--teal-alpha-70) 0%, var(--fuchsia-alpha-70) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-image__watermark {
+  position: absolute;
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  width: clamp(250px, 50%, 3000px);
+  height: auto;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 3;
+  user-select: none;
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-content h1              { animation: hero-fade-up 0.7s ease both; }
+.hero-content p               { animation: hero-fade-up 0.7s ease 0.22s both; }
+.hero-image                   { animation: hero-fade-in 1s ease 0.1s both; }
+
+
+/* ========================================
+   MARKET — white, stat block
+   ======================================== */
+.market {
+  padding: var(--section-pad) 0;
+  background: var(--white);
+}
+
+.market__intro {
+  max-width: 800px;
+  margin: 0 auto clamp(48px, 6vw, 72px);
+  text-align: center;
+}
+
+.market__intro h2 { margin-bottom: 1rem; }
+
+/* Two centered stat cards */
+.stat-cards {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 36px);
+  flex-wrap: wrap;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.stat-card {
+  flex: 1;
+  max-width: 330px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: clamp(28px, 3.5vw, 44px) clamp(16px, 2.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  box-shadow: -2px -2px 0 var(--color-bg-subtle), var(--shadow-card-md);
+}
+
+.stat-number {
+  font-family: var(--font-brand);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h1);
+  letter-spacing: var(--tracking-display);
+  color: var(--fuchsia);
+  line-height: 1;
+}
+
+.stat-desc {
+  font-size: var(--fs-p2);
+  color: var(--navy);
+  line-height: 1.65;
+  max-width: 250px;
+}
+
+.market-qualifier {
+  text-align: center;
+  font-size: var(--fs-p1);
+  font-weight: var(--fw-medium);
+  color: var(--navy);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   WHAT MAKES US DIFFERENT — parchment
+   ======================================== */
+.different {
+  padding: var(--section-pad) 0;
+  background: var(--color-bg-subtle);
+}
+
+.different__heading {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.different__sub {
+  text-align: center;
+  margin: 0 auto clamp(48px, 6vw, 72px);
+  max-width: 520px;
+}
+
+/* ========================================
+   BACKED BY INVESTORS — navy
+   ======================================== */
+.investor {
+  padding: var(--section-pad) 0;
+  background: var(--navy);
+}
+
+.investor__inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.investor__mark {
+  font-family: var(--font-brand);
+  font-size: 6.5rem;
+  color: var(--fuchsia);
+  text-shadow: 4px 4px 0 var(--white);
+  line-height: 0.8;
+  display: block;
+}
+
+.investor__quote {
+  font-size: var(--fs-p1);
+  line-height: 1.9;
+  font-weight: var(--fw-light);
+}
+
+.investor__attribution {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--white-18);
+}
+
+.investor__name {
+  font-size: var(--fs-p1);
+  font-weight: var(--fw-medium);
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.investor__role {
+  font-size: var(--fs-p1);
+  font-weight: var(--fw-light);
+  color: var(--white);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+
+/* ========================================
+   TEAM CTA — white
+   ======================================== */
+.team-cta {
+  background: var(--white);
+}
+
+.team-cta__inner {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  min-height: 80vh;
+}
+
+.team-cta__content {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--section-pad-sm) clamp(32px, 5vw, 72px);
+  padding-left: clamp(80px, 8vw, 140px);
+}
+
+.team-cta__content h2 {
+  margin-bottom: 1rem;
+  max-width: 480px;
+}
+
+.team-cta__content p {
+  max-width: 440px;
+  margin-bottom: 2rem;
+}
+
+.team-cta__image {
+  flex: 1;
+  position: relative;
+  clip-path: url(#clip-cta-right);
+  margin-left: 0%;
+}
+
+.team-cta__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+/* ========================================
+   RESPONSIVE — 768px
+   ======================================== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .hero-content {
+    flex: none;
+    padding-left: clamp(32px, 5vw, 72px);
+    padding-bottom: 0;
+  }
+
+  .hero-image {
+    flex: none;
+    height: 280px;
+    clip-path: none;
+  }
+
+  .stat-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding-left: clamp(24px, 6vw, 32px);
+    padding-right: clamp(24px, 6vw, 32px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content h1,
+  .hero-content p,
+  .hero-image { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Clip-path definitions -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:visible">
+  <defs>
+    <clipPath id="clip-image-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.3,0.5 0,0 Z"/>
+    </clipPath>
+    <clipPath id="clip-image-left" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 Q 0.7,0.5 1,1 L 0,1 Z"/>
+    </clipPath>
+    <clipPath id="clip-cta-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.25,0.5 0,0 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="Resources.html">Resources</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+      <div class="nav-cta" id="navCta">
+        <a href="index.html#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="insights.html">Insights</a>
+  <a href="contact.html">Contact</a>
+  <a href="index.html#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+</div>
+
+<!-- =============================================
+     HERO — split layout, image right
+     ============================================= -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Built to fund your operations and fuel your growth</h1>
+    <p>OneAM is an American company setting a new industry standard in early pay. We connect SMBs and founders selling receivables with sophisticated institutional investors — a faster, more business-friendly alternative to traditional factoring.</p>
+  </div>
+  <div class="hero-image" aria-hidden="true">
+    <img src="image_assets/port.jpg" alt="">
+    <img src="Logo 01 Primary/OneAM-Symbol-White.png" alt="" class="hero-image__watermark">
+  </div>
+</section>
+
+<!-- =============================================
+     WHY WE EXIST — parchment
+     ============================================= -->
+<section class="why-exist section-dark" id="why">
+  <div class="container">
+    <div class="why-exist__inner reveal">
+      <h2>The problem we're solving</h2>
+      <div class="why-exist__body">
+        <p>SMBs and founders are the backbone of the U.S. economy and the most underserved when it comes to working capital.</p>
+        <p>Traditional factoring can be slow, painful, and expensive. Bank lines are out of reach for many. The alternatives are too costly to be long-term solutions.</p>
+        <p>OneAM was built to fix that. We bring modern infrastructure, quantitative risk assessment and a platform that integrates seamlessly with the tools you already use to run your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     THE MARKET WE SERVE — white
+     ============================================= -->
+<section class="market" id="market">
+  <div class="container">
+    <div class="market__intro reveal">
+      <h2>The businesses everyone else has overlooked</h2>
+      <p>We focus on U.S. SMBs and B2B suppliers selling into enterprise customers.</p>
+    </div>
+
+    <div class="stat-cards">
+      <div class="stat-card reveal-stagger">
+        <div class="stat-number">$4.6T</div>
+        <div class="stat-desc">in annual invoicing from U.S. SMBs to enterprise customers</div>
+      </div>
+      <div class="stat-card reveal-stagger">
+        <div class="stat-number">300,000+</div>
+        <div class="stat-desc">American businesses sit in our sweet spot</div>
+      </div>
+    </div>
+
+    <p class="market-qualifier reveal">Too <span style="text-decoration:underline;text-decoration-color:var(--teal-60);text-decoration-thickness:3px;text-underline-offset:2.5px">small</span> 
+      for low-cost bank loans, too <span style="text-decoration:underline;text-decoration-color:var(--teal-60);text-decoration-thickness:3px;text-underline-offset:2.5px">price-sensitive</span> 
+      for micro-SMB solutions, too <span style="text-decoration:underline;text-decoration-color:var(--teal-60);text-decoration-thickness:3px;text-underline-offset:2.5px">valuable</span> to be left without options.</p>
+  </div>
+</section>
+
+<!-- =============================================
+     WHAT MAKES US DIFFERENT — parchment
+     Uses .why-grid from components.css
+     ============================================= -->
+<section class="different" id="different">
+  <div class="container">
+    <div class="different__heading reveal">
+      <h2>What makes us different</h2>
+    </div>
+    <h3 class="different__sub fuchsia reveal">Four things that set OneAM apart</h3>
+
+    <div class="diff-list">
+      <div class="diff-item reveal-stagger">
+        <div class="diff-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="2.5"/><path d="M4 5v4.5c0 1.38 3.58 2.5 8 2.5s8-1.12 8-2.5V5"/><path d="M4 9.5v4.5c0 1.38 3.58 2.5 8 2.5s8-1.12 8-2.5V9.5"/><path d="M4 14v4.5c0 1.38 3.58 2.5 8 2.5s8-1.12 8-2.5V14"/></svg>
+        </div>
+        <div class="diff-body">
+          <h3>Modern infrastructure</h3>
+          <p>Receivables finance has been around for over 1,000 years. We've adapted it to the needs of the modern business.</p>
+        </div>
+      </div>
+
+      <div class="diff-item reveal-stagger">
+        <div class="diff-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="diff-body">
+          <h3>Quantitative risk assessment</h3>
+          <p>Efficient pricing because we use data, not gut feel.</p>
+        </div>
+      </div>
+
+      <div class="diff-item reveal-stagger">
+        <div class="diff-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="diff-body">
+          <h3>Built for the underdog</h3>
+          <p>We specialize in serving small and midsize businesses with enterprise and government end customers.</p>
+        </div>
+      </div>
+
+      <div class="diff-item reveal-stagger">
+        <div class="diff-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="1" y="1" width="9" height="7" rx="1.5"/><path d="M10 4.5 C23 4.5 23 12 12 12 C1 12 1 19.5 14 19.5"/><rect x="14" y="16" width="9" height="7" rx="1.5"/></svg>
+        </div>
+        <div class="diff-body">
+          <h3>No disruption</h3>
+          <p>Your customers never know we're involved. The relationship is yours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     BACKED BY LEADING INVESTORS — navy
+     ============================================= -->
+<section class="investor section-dark" id="investors">
+  <div class="container">
+    <div class="investor__inner reveal">
+      <span class="investor__mark">&ldquo;</span>
+      <p class="investor__quote">Ksusha and Charlotte have combined an industry-changing vision with deep technical expertise to build a platform that makes it easier for suppliers to connect with competitive offers from capital providers. OneAM represents the future of working capital for small to midsize suppliers; once cash flow is unlocked, businesses have more potential to thrive.</p>
+      <div class="investor__attribution">
+        <div class="investor__name">Gardiner Garrard</div>
+        <div class="investor__role">Co-founder and Managing Partner, TTV Capital</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     MEET THE TEAM — white
+     ============================================= -->
+<section class="team-cta" id="team">
+  <div class="team-cta__inner reveal">
+    <div class="team-cta__content">
+      <h2>Meet the team at oneam</h2>
+      <p>The people behind the platform.</p>
+      <a href="team.html" class="btn-primary">Meet the team <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="team-cta__image" aria-hidden="true">
+      <img src="image_assets/McCormick-3170.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" class="footer-logo">
+    <p class="footer-tagline">The new industry standard for early pay. Built to fund your operations and fuel your growth.</p>
+
+    <div class="footer-links">
+      <a href="about.html">About</a><span class="footer-sep">&middot;</span>
+      <a href="industries.html">Industries</a><span class="footer-sep">&middot;</span>
+      <a href="Resources.html">Resources</a><span class="footer-sep">&middot;</span>
+      <a href="insights.html">Insights</a><span class="footer-sep">&middot;</span>
+      <a href="team.html">Team</a><span class="footer-sep">&middot;</span>
+      <a href="contact.html">Contact</a><span class="footer-sep">&middot;</span>
+      <a href="#">Privacy</a><span class="footer-sep">&middot;</span>
+      <a href="#">Terms</a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:info@oneam.us">info@oneam.us</a><span class="footer-sep">&middot;</span>
+      <span>New York, NY</span><span class="footer-sep">&middot;</span>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 OneAM. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="index.html#get-started" class="btn-primary sticky-cta" id="stickyCta">Book a demo <span class="arrow">&rarr;</span></a>
+
+<script src="components.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About OneAM | The New Industry Standard for Early Pay",
+  "description": "OneAM is a New York-based company setting a new industry standard in early pay for American businesses. Learn why we exist, what we do, and who's behind us.",
+  "url": "https://www.oneam.us/about"
+}
+</script>
+
+</body>
+</html>

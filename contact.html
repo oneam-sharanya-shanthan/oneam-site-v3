@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — OneAM</title>
+<meta name="description" content="Whether you're a business looking for working capital, a capital provider, or a referral partner — we want to hear from you.">
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="components.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+  background:
+    linear-gradient(rgba(20, 20, 60, 0.85), rgba(20, 20, 60, 0.85)),
+    url('image_assets/machine.jpg') center / cover no-repeat;
+  padding: clamp(60px, 9vw, 100px) 0;
+  color: var(--white);
+}
+
+.page-header h1 { margin-bottom: 1rem; color: var(--white); }
+
+.page-header p {
+  white-space: nowrap;
+  line-height: 1.8;
+  color: var(--white);
+}
+
+/* ========================================
+   DEMO CTA SECTION
+   ======================================== */
+.demo-cta {
+  background: var(--white);
+  padding: var(--section-pad) 0;
+  text-align: center;
+}
+
+.demo-cta h2 {
+  margin-bottom: 0.75rem;
+}
+
+.demo-cta .demo-cta__sub {
+  color: var(--fuchsia);
+  margin-bottom: 2rem;
+}
+
+.demo-cta .demo-cta__body {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  color: var(--navy);
+  opacity: 0.75;
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+.contact-section {
+  background: var(--color-bg-subtle);
+  padding: var(--section-pad) 0;
+}
+
+.contact-section__inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: clamp(40px, 6vw, 80px);
+  row-gap: clamp(20px, 2.5vw, 32px);
+}
+
+.contact-section__heading {
+  grid-column: 1;
+  grid-row: 1;
+  padding-left: clamp(28px, 4vw, 48px);
+}
+
+.contact-form-card {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.direct-contacts {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 0;
+  padding-top: clamp(28px, 4vw, 48px);
+}
+
+/* Left column */
+.contact-section__heading h2 {
+  margin-bottom: 0.5rem;
+}
+
+.contact-section__heading .contact-sub {
+  color: var(--navy);
+  margin-bottom: 0;
+}
+
+.direct-contacts__label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fuchsia);
+  margin-bottom: 1.25rem;
+}
+
+.direct-contacts__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.direct-contacts__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.direct-contacts__role {
+  color: var(--fuchsia);
+}
+
+.direct-contacts__email {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-base);
+}
+
+.direct-contacts__email:hover { color: var(--teal); }
+
+/* Right column — form card */
+.contact-form-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 48px);
+  box-shadow: -2px -2px 0 var(--color-bg-subtle), var(--shadow-card-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid rgba(20, 20, 60, 0.15);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--navy);
+  background: var(--white);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  font-weight: 400;
+  color: rgba(20, 20, 60, 0.35);
+}
+
+.form-field select:invalid {
+  color: rgba(20, 20, 60, 0.35);
+}
+
+.form-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2314143C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--fuchsia);
+  box-shadow: 0 0 0 3px rgba(195, 60, 210, 0.12);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-submit {
+  margin-top: 0.5rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .contact-section__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card { grid-column: 1; grid-row: 2; }
+  .direct-contacts   { grid-column: 1; grid-row: 3; }
+}
+
+@media (max-width: 640px) {
+  .demo-cta .demo-cta__body {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="Resources.html">Resources</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+
+      <div class="nav-cta" id="navCta">
+        <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="insights.html">Insights</a>
+  <a href="#">Contact</a>
+  <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+</div>
+
+<!-- =============================================
+     PAGE HEADER
+     ============================================= -->
+<section class="page-header">
+  <div class="container reveal">
+    <h1>Let's talk.</h1>
+    <p>Whether you're a business looking for working capital, a capital provider, or a referral partner — we want to hear from you.</p>
+  </div>
+</section>
+
+<!-- =============================================
+     DEMO CTA
+     ============================================= -->
+<section class="demo-cta">
+  <div class="container reveal">
+    <h2>Book a 15-minute demo</h2>
+    <h3 class="demo-cta__sub">For businesses interested in OneAM.</h3>
+    <p class="demo-cta__body">Tell us a bit about your business and we'll walk you through how OneAM works in 15 minutes. No prep needed.</p>
+    <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- =============================================
+     CONTACT FORM
+     ============================================= -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-section__inner">
+
+      <!-- Left row 1: heading + subtitle -->
+      <div class="contact-section__heading reveal">
+        <h2>Or send us a message</h2>
+        <p class="contact-sub">For everything else.</p>
+      </div>
+
+      <!-- Left row 2: form card -->
+      <div class="contact-form-card reveal">
+        <form class="contact-form" action="#" method="post">
+          <div class="form-field">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-field">
+            <label for="contact-company">Company Name</label>
+            <input type="text" id="contact-company" name="company" placeholder="Your company">
+          </div>
+          <div class="form-field">
+            <label for="contact-type">I'm reaching out as a</label>
+            <select id="contact-type" name="type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="business">Business</option>
+              <option value="capital-provider">Capital Provider</option>
+              <option value="partner">Partner</option>
+              <option value="press">Press</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Send message <span class="arrow">&rarr;</span></button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right row 2: direct contacts -->
+      <div class="direct-contacts reveal">
+        <ul class="direct-contacts__list">
+          <li class="direct-contacts__item">
+            <h3 class="direct-contacts__role">Product Support</h3>
+            <a href="mailto:info@oneam.us" class="direct-contacts__email">info@oneam.us</a>
+          </li>
+          <li class="direct-contacts__item">
+            <h3 class="direct-contacts__role">Capital Partners</h3>
+            <a href="mailto:info@oneam.us" class="direct-contacts__email">info@oneam.us</a>
+          </li>
+          <li class="direct-contacts__item">
+            <h3 class="direct-contacts__role">General &amp; Press</h3>
+            <a href="mailto:Marketing@oneam.us" class="direct-contacts__email">Marketing@oneam.us</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" class="footer-logo">
+    <p class="footer-tagline">The new industry standard for early pay. Built to fund your operations and fuel your growth.</p>
+
+    <div class="footer-links">
+      <a href="about.html">About</a><span class="footer-sep">&middot;</span>
+      <a href="industries.html">Industries</a><span class="footer-sep">&middot;</span>
+      <a href="Resources.html">Resources</a><span class="footer-sep">&middot;</span>
+      <a href="insights.html">Insights</a><span class="footer-sep">&middot;</span>
+      <a href="#">Team</a><span class="footer-sep">&middot;</span>
+      <a href="#">Contact</a><span class="footer-sep">&middot;</span>
+      <a href="#">Privacy</a><span class="footer-sep">&middot;</span>
+      <a href="#">Terms</a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:info@oneam.us">info@oneam.us</a><span class="footer-sep">&middot;</span>
+      <span>New York, NY</span><span class="footer-sep">&middot;</span>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 OneAM. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="components.js"></script>
+
+</body>
+</html>

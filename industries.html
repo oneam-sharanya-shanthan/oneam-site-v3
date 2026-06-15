@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industries OneAM Has Served | Working Capital for American SMBs and Founders</title>
+<meta name="description" content="OneAM is industry-agnostic. We've served American SMBs and founders across manufacturing, energy, government contracting, creative services, and more.">
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="components.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   HERO — split layout, image right
+   ======================================== */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(60px, 8vw, 100px) clamp(32px, 5vw, 72px);
+  padding-left: clamp(80px, 8vw, 140px);
+}
+
+.hero h1 { margin-bottom: 2rem; }
+
+.hero p {
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  clip-path: url(#clip-image-right);
+}
+
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 80% center;
+}
+
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-content h1              { animation: hero-fade-up 0.7s ease both; }
+.hero-content p               { animation: hero-fade-up 0.7s ease 0.22s both; }
+.hero-image                   { animation: hero-fade-in 1s ease 0.1s both; }
+
+
+/* ========================================
+   WHOM WE'VE SERVED — waypoint icon circles, white
+   ======================================== */
+.whom-served-v2 {
+  padding: var(--section-pad) 0;
+  background: var(--color-bg-subtle);
+}
+
+.whom-served-v2__intro {
+  max-width: 760px;
+  margin: 0 auto clamp(20px, 2.5vw, 28px);
+  text-align: center;
+}
+
+.whom-served-v2__intro h2 { margin-bottom: 0.75rem; }
+
+.whom-served-v2__sub {
+  margin-bottom: 2rem;
+}
+
+.whom-served-v2__snapshot {
+  text-align: center;
+  margin-bottom: clamp(35px, 4vw, 55px);
+}
+
+.whom-served-v2__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 150px));
+  gap: clamp(28px, 4vw, 44px) clamp(16px, 2.5vw, 28px);
+  justify-content: center;
+}
+
+.whom-served-v2__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(16px, 2vw, 22px);
+}
+
+.whom-served-v2__circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--fuchsia);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 8px var(--white), 0 0 0 10px var(--fuchsia-alpha-30);
+}
+
+.whom-served-v2__circle svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.whom-served-v2__item h3 {
+  font-size: var(--fs-p2);
+  color: var(--navy);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.whom-served-v2__footer {
+  text-align: center;
+  margin-top: clamp(35px, 4vw, 55px);
+}
+
+
+/* ========================================
+   ONE PLATFORM — split CTA, white
+   ======================================== */
+.one-platform {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.one-platform__content {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(60px, 8vw, 100px) clamp(32px, 5vw, 72px);
+  padding-left: clamp(80px, 8vw, 140px);
+}
+
+.one-platform__content h2 { margin-bottom: 1.25rem; }
+
+.one-platform__sub {
+  margin-bottom: 2rem;
+}
+
+.one-platform__body {
+  font-size: var(--fs-p1);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+.one-platform__content .btn-primary { align-self: flex-start; }
+
+.one-platform__image {
+  flex: 1;
+  position: relative;
+  clip-path: url(#clip-image-right);
+}
+
+.one-platform__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .hero,
+  .one-platform {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .hero-content,
+  .one-platform__content {
+    flex: none;
+    padding-left: clamp(32px, 5vw, 72px);
+    padding-bottom: 0;
+  }
+
+  .hero-image,
+  .one-platform__image {
+    flex: none;
+    height: 280px;
+    clip-path: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content,
+  .one-platform__content {
+    padding-left: clamp(24px, 6vw, 32px);
+    padding-right: clamp(24px, 6vw, 32px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content h1,
+  .hero-content p,
+  .hero-image { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Clip-path definitions -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:visible">
+  <defs>
+    <clipPath id="clip-image-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.3,0.5 0,0 Z"/>
+    </clipPath>
+    <clipPath id="clip-image-left" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 Q 0.7,0.5 1,1 L 0,1 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html" aria-current="page">Industries</a></li>
+        <li><a href="Resources.html">Resources</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+      <div class="nav-cta" id="navCta">
+        <a href="index.html#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="insights.html">Insights</a>
+  <a href="contact.html">Contact</a>
+  <a href="index.html#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+</div>
+
+<!-- =============================================
+     HERO — split layout, image right
+     ============================================= -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Industry agnostic design</h1>
+    <p>If your business invoices large customers and waits to get paid, OneAM can help. The pain point of long payment terms is universal, and so is our solution.</p>
+  </div>
+  <div class="hero-image" aria-hidden="true">
+    <img src="image_assets/aerial_planes.jpg" alt="">
+  </div>
+</section>
+
+<!-- =============================================
+     WHOM WE'VE SERVED — parchment
+     Uses .why-grid from components.css
+     ============================================= -->
+<section class="whom-served-v2" id="served">
+  <div class="container">
+    <div class="whom-served-v2__intro reveal">
+      <h2>Whom we've served</h2>
+      <h3 class="whom-served-v2__sub fuchsia">Across every corner of the American economy</h3>
+      <p>We've worked with SMBs and founders selling into enterprise, government, and large institutional buyers. Different industries, same underlying story: the work gets done, the invoice goes out, the cash takes too long to come back.</p>
+    </div>
+
+    <p class="whom-served-v2__snapshot reveal">A snapshot of the industries OneAM has served:</p>
+
+    <div class="whom-served-v2__grid">
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Manufacturing and industrial suppliers</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Energy and<br>oil &amp; gas</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+        </div>
+        <h3>Government contractors</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Creative and marketing services</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h3>Retail vendors and consumer brands</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <h3>Professional and technical services</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Technology and<br>media</h3>
+      </div>
+
+      <div class="whom-served-v2__item reveal-stagger">
+        <div class="whom-served-v2__circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Logistics and transportation</h3>
+      </div>
+
+    </div>
+
+    <p class="whom-served-v2__footer reveal">And many more.</p>
+  </div>
+</section>
+
+<!-- =============================================
+     ONE PLATFORM — split CTA
+     ============================================= -->
+<section class="one-platform" id="platform">
+  <div class="one-platform__content reveal">
+    <h2>One platform. Every industry.</h2>
+    <h3 class="one-platform__sub fuchsia">oneam is built to work the same way regardless of what you sell</h3>
+    <p class="one-platform__body">Our quantitative risk assessment evaluates the invoice and the customer paying it, not the industry sticker on your business. That's the advantage of modern infrastructure: we can serve a manufacturer in Ohio and a creative agency in Brooklyn with the same fast, fair, flexible product.</p>
+    <a href="index.html#get-started" class="btn-primary">Tell us about your business <span class="arrow">&rarr;</span></a>
+  </div>
+  <div class="one-platform__image" aria-hidden="true">
+    <img src="image_assets/studio.jpg" alt="">
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" class="footer-logo">
+    <p class="footer-tagline">The new industry standard for early pay. Built to fund your operations and fuel your growth.</p>
+
+    <div class="footer-links">
+      <a href="about.html">About</a><span class="footer-sep">&middot;</span>
+      <a href="industries.html">Industries</a><span class="footer-sep">&middot;</span>
+      <a href="Resources.html">Resources</a><span class="footer-sep">&middot;</span>
+      <a href="insights.html">Insights</a><span class="footer-sep">&middot;</span>
+      <a href="team.html">Team</a><span class="footer-sep">&middot;</span>
+      <a href="contact.html">Contact</a><span class="footer-sep">&middot;</span>
+      <a href="#">Privacy</a><span class="footer-sep">&middot;</span>
+      <a href="#">Terms</a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:info@oneam.us">info@oneam.us</a><span class="footer-sep">&middot;</span>
+      <span>New York, NY</span><span class="footer-sep">&middot;</span>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 OneAM. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="index.html#get-started" class="btn-primary sticky-cta" id="stickyCta">Book a demo <span class="arrow">&rarr;</span></a>
+
+<script src="components.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Industries OneAM Has Served | Working Capital for American SMBs and Founders",
+  "description": "OneAM is industry-agnostic. We've served American SMBs and founders across manufacturing, energy, government contracting, creative services, and more.",
+  "url": "https://www.oneam.us/industries"
+}
+</script>
+
+</body>
+</html>

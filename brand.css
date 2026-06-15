@@ -164,6 +164,18 @@
   --shadow-navy-sm:    0 2px 10px rgba(20, 20, 60, 0.15);
   --shadow-navy-md:    0 6px 20px rgba(20, 20, 60, 0.20);
 
+  /* ── Card shadows ────────────────────────────────────────────
+     Teal offset (bottom-right) + diffuse navy drop shadow.
+     sm → FAQ / compact cards
+     md → testimonial / mid-size cards
+     lg → why-grid / large cards
+     For cards on parchment (--color-bg-subtle), prepend:
+       -2px -2px 0 var(--color-bg-subtle), var(--shadow-card-lg)
+     to visually separate the card from the background.         */
+  --shadow-card-sm: 3px 3px 0 var(--teal-alpha-20), 0 4px 16px var(--navy-alpha-08);
+  --shadow-card-md: 4px 4px 0 var(--teal-alpha-15), 0 8px 20px var(--navy-alpha-08);
+  --shadow-card-lg: 4px 4px 0 var(--teal-alpha-15), 0 8px 32px var(--navy-alpha-08);
+
 
   /* ── Brand gradient ──────────────────────────────────────────
      Used in brand photography overlays and accent elements      */
@@ -191,6 +203,34 @@
 
   /* ── Button shape ────────────────────────────────────────────── */
   --radius-btn: 100px;
+  --radius:     12px;   /* cards, panels, accordions */
+
+  /* ── Layout ──────────────────────────────────────────────────── */
+  --max-width:   1140px;
+  --nav-height:  72px;
+
+  /* ── Section padding ─────────────────────────────────────────── */
+  --section-pad:    clamp(80px, 12vw, 140px);   /* standard tall sections */
+  --section-pad-sm: clamp(48px, 7vw, 80px);     /* compact sections */
+
+  /* ── Motion ──────────────────────────────────────────────────── */
+  --transition-base: 0.3s ease;
+
+  /* ── Shadows ─────────────────────────────────────────────────── */
+  --shadow-soft: 0 2px 16px var(--navy-alpha-06);
+  --shadow-nav:  0 1px 8px var(--white-08);
+
+  /* ── UI font (buttons, nav links) ────────────────────────────── */
+  --font-ui: 'Josefin Sans', sans-serif;
+
+  /* ── Type scale ──────────────────────────────────────────────── */
+  --fs-h1: clamp(1.9rem, 4vw, 3.0rem);
+  --fs-h2: clamp(1.5rem, 2.8vw, 2.2rem);
+  --fs-h3: clamp(1.05rem, 1.6vw, 1.3rem);
+
+  /* ── Paragraph scale ─────────────────────────────────────────── */
+  --fs-p1: clamp(1.0rem,  1.3vw,  1.12rem);   /* lead / main body paragraphs */
+  --fs-p2: clamp(0.9rem,  1.15vw, 1.0rem);    /* secondary / testimonial text */
 
 }
 
@@ -245,12 +285,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-size: var(--fs-h1);
   letter-spacing: var(--tracking-display);
 }
 
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
 p {
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: var(--fs-p1);
+  color: var(--navy);
+  line-height: 1.75;
   letter-spacing: var(--tracking-body);
 }
 
