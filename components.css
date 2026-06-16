@@ -839,5 +839,6 @@ h3.fuchsia { color: var(--fuchsia); }
 /* ── Responsive: 480px ───────────────────────────────────────────── */
 
 @media (max-width: 480px) {
-  .why-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .why-grid          { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+  .carousel-viewport { max-width: 300px; margin: 0 auto; }
 }
