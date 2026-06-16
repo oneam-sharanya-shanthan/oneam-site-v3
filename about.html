@@ -168,16 +168,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 0;
 }
 
 .investor__mark {
   font-family: var(--font-brand);
-  font-size: 6.5rem;
+  font-size: 5rem;
   color: var(--fuchsia);
-  text-shadow: 4px 4px 0 var(--white);
+  text-shadow: 3px 3px 0 var(--white);
   line-height: 0.8;
   display: block;
+  margin-bottom: 0.75rem;
+}
+
+.investor__mark--close {
+  margin-bottom: 0;
+  margin-top: 3.25rem;
 }
 
 .investor__quote {
@@ -187,7 +193,7 @@
 }
 
 .investor__attribution {
-  margin-top: 2rem;
+  margin-top: -1rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--white-18);
 }
@@ -475,6 +481,7 @@
     <div class="investor__inner reveal">
       <span class="investor__mark">&ldquo;</span>
       <p class="investor__quote">Ksusha and Charlotte have combined an industry-changing vision with deep technical expertise to build a platform that makes it easier for suppliers to connect with competitive offers from capital providers. OneAM represents the future of working capital for small to midsize suppliers; once cash flow is unlocked, businesses have more potential to thrive.</p>
+      <span class="investor__mark investor__mark--close">&rdquo;</span>
       <div class="investor__attribution">
         <div class="investor__name">Gardiner Garrard</div>
         <div class="investor__role">Co-founder and Managing Partner, TTV Capital</div>

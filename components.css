@@ -522,21 +522,27 @@ h3.fuchsia { color: var(--fuchsia); }
 
 .testimonial-mark {
   font-family: var(--font-brand);
-  font-size: 4.8rem;
-  color: var(--fuchsia);
+  font-size: 3.5rem;
+  color: var(--fuchsia-60);
   line-height: 0.8;
-  margin-bottom: 0.15rem;
+  margin-bottom: -0.5rem;
+}
+
+.testimonial-mark--close {
+  text-align: right;
+  margin-bottom: 0;
+  margin-top: -1.5rem;
 }
 
 .testimonial-quote {
   font-size: var(--fs-p1);
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   flex: 1;
 }
 
 .testimonial-attribution {
-  padding-top: 1rem;
+  padding-top: 0rem;
   border-top: 1px solid var(--teal-alpha-15);
 }
 
@@ -577,6 +583,7 @@ h3.fuchsia { color: var(--fuchsia); }
   line-height: 1;
   padding: 0;
   transition: color var(--transition-base);
+  -webkit-text-stroke: 1.5px currentColor;
 }
 
 .carousel-arrow--prev:hover,
