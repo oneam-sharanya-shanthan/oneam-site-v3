@@ -51,30 +51,8 @@
   height: 100%;
   object-fit: cover;
   object-position: 60% center;
-  transform: rotate(-8deg) scale(1.1);
 }
 
-.hero-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--teal-alpha-70) 0%, var(--fuchsia-alpha-70) 100%);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hero-image__watermark {
-  position: absolute;
-  top: 50%;
-  left: 58%;
-  transform: translate(-50%, -50%);
-  width: clamp(250px, 50%, 3000px);
-  height: auto;
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 3;
-  user-select: none;
-}
 
 @keyframes hero-fade-up {
   from { opacity: 0; transform: translateY(24px); }
@@ -388,7 +366,6 @@
   </div>
   <div class="hero-image" aria-hidden="true">
     <img src="image_assets/port.jpg" alt="">
-    <img src="Logo 01 Primary/OneAM-Symbol-White.png" alt="" class="hero-image__watermark">
   </div>
 </section>
 
