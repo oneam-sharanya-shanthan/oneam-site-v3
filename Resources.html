@@ -39,9 +39,10 @@
 }
 
 .hero-image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
+}
+@media (min-width: 769px) {
+  .hero-image { flex: 1; clip-path: url(#clip-image-right); }
 }
 
 .hero-image img {
@@ -135,10 +136,10 @@
 }
 
 .final-cta__image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
-  margin-left: 2%;
+}
+@media (min-width: 769px) {
+  .final-cta__image { flex: 1; margin-left: 2%; clip-path: url(#clip-image-right); }
 }
 
 .final-cta__image img {
@@ -177,14 +178,11 @@
 
   .hero-content {
     flex: none;
-    padding-left: clamp(32px, 5vw, 72px);
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
     padding-bottom: 0;
-  }
-
-  .hero-image {
-    flex: none;
-    height: 280px;
-    clip-path: none;
+    text-align: center;
+    align-items: center;
   }
 
   .final-cta__inner {
@@ -194,14 +192,12 @@
 
   .final-cta__content {
     flex: none;
-    padding-left: clamp(32px, 5vw, 72px);
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
+    text-align: center;
+    align-items: center;
   }
 
-  .final-cta__image {
-    flex: none;
-    height: 280px;
-    clip-path: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -290,7 +286,7 @@
 <section class="why-exist section-dark" id="what-is-early-pay">
   <div class="container">
     <div class="why-exist__inner reveal">
-      <h2>What is oneam early pay?</h2>
+      <h2>What is <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" class="logo-inline" style="margin-right:0.1em"> early pay?</h2>
       <div class="why-exist__body">
         <p>Early pay is a simple idea with a long history. When your business sends an invoice to a customer, you usually wait 30, 60, or even 90 days to get paid. Early pay lets you get the cash now — from an institutional investor who pays the invoice early. Your customer still pays on their normal schedule. You skip the wait. </p>
         <p>It's not a loan. You're not borrowing money — you're getting paid earlier on revenue you've already earned. There's no debt on your balance sheet and no equity given up.</p>

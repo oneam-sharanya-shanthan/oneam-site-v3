@@ -39,9 +39,10 @@
 }
 
 .hero-image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
+}
+@media (min-width: 769px) {
+  .hero-image { flex: 1; clip-path: url(#clip-image-right); }
 }
 
 .hero-image img {
@@ -179,9 +180,10 @@
 .one-platform__content .btn-primary { align-self: flex-start; }
 
 .one-platform__image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
+}
+@media (min-width: 769px) {
+  .one-platform__image { flex: 1; clip-path: url(#clip-image-right); }
 }
 
 .one-platform__image img {
@@ -206,15 +208,20 @@
   .hero-content,
   .one-platform__content {
     flex: none;
-    padding-left: clamp(32px, 5vw, 72px);
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
     padding-bottom: 0;
+    text-align: center;
+    align-items: center;
   }
 
-  .hero-image,
+  .one-platform__content .btn-primary { align-self: center; }
+
   .one-platform__image {
     flex: none;
-    height: 280px;
-    clip-path: none;
+    height: 220px;
+    margin-top: 1.5rem;
+    clip-path: url(#clip-image-top);
   }
 }
 
@@ -294,7 +301,7 @@
     <p>If your business invoices large customers and waits to get paid, OneAM can help. The pain point of long payment terms is universal, and so is our solution.</p>
   </div>
   <div class="hero-image" aria-hidden="true">
-    <img src="image_assets/aerial_planes.jpg" alt="">
+    <img src="image_assets/aerial_trucks.jpg" alt="">
   </div>
 </section>
 
@@ -381,8 +388,8 @@
      ============================================= -->
 <section class="one-platform" id="platform">
   <div class="one-platform__content reveal">
-    <h2>One platform. Every industry.</h2>
-    <h3 class="one-platform__sub fuchsia">oneam is built to work the same way regardless of what you sell</h3>
+    <h2>One platform, every industry</h2>
+    <h3 class="one-platform__sub fuchsia">OneAM is built to work the same way regardless of what you sell</h3>
     <p class="one-platform__body">Our quantitative risk assessment evaluates the invoice and the customer paying it, not the industry sticker on your business. That's the advantage of modern infrastructure: we can serve a manufacturer in Ohio and a creative agency in Brooklyn with the same fast, fair, flexible product.</p>
     <a href="index.html#get-started" class="btn-primary">Tell us about your business <span class="arrow">&rarr;</span></a>
   </div>

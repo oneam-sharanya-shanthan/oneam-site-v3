@@ -39,9 +39,10 @@
 }
 
 .hero-image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
+}
+@media (min-width: 769px) {
+  .hero-image { flex: 1; clip-path: url(#clip-image-right); }
 }
 
 .hero-image img:not(.hero-image__watermark) {
@@ -236,11 +237,11 @@
   align-items: flex-start;
   padding: var(--section-pad-sm) clamp(32px, 5vw, 72px);
   padding-left: clamp(80px, 8vw, 140px);
+  padding-right: clamp(16px, 2vw, 32px);
 }
 
 .team-cta__content h2 {
   margin-bottom: 1rem;
-  max-width: 480px;
 }
 
 .team-cta__content p {
@@ -249,10 +250,11 @@
 }
 
 .team-cta__image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-cta-right);
   margin-left: 0%;
+}
+@media (min-width: 769px) {
+  .team-cta__image { flex: 1; clip-path: url(#clip-cta-right); }
 }
 
 .team-cta__image img {
@@ -276,19 +278,38 @@
 
   .hero-content {
     flex: none;
-    padding-left: clamp(32px, 5vw, 72px);
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
     padding-bottom: 0;
-  }
-
-  .hero-image {
-    flex: none;
-    height: 280px;
-    clip-path: none;
+    text-align: center;
+    align-items: center;
   }
 
   .stat-cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  .team-cta__inner {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .team-cta__content {
+    flex: none;
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
+    padding-bottom: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+
+  .team-cta__image {
+    flex: none;
+    height: 220px;
+    margin-top: 1.5rem;
+    clip-path: url(#clip-image-top);
   }
 
 }
@@ -496,7 +517,7 @@
 <section class="team-cta" id="team">
   <div class="team-cta__inner reveal">
     <div class="team-cta__content">
-      <h2>Meet the team at oneam</h2>
+      <h2>Meet the team at <img src="Logo 01 Primary/OneAM-Logo-Navy-Color.svg" alt="OneAM" class="logo-inline"></h2>
       <p>The people behind the platform.</p>
       <a href="team.html" class="btn-primary">Meet the team <span class="arrow">&rarr;</span></a>
     </div>

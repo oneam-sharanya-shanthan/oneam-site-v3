@@ -18,7 +18,7 @@
 .page-header {
   background:
     linear-gradient(rgba(20, 20, 60, 0.85), rgba(20, 20, 60, 0.85)),
-    url('image_assets/aerial_trucks.jpg') center / cover no-repeat;
+    url('image_assets/aerial_planes.jpg') center / cover no-repeat;
   padding: clamp(60px, 9vw, 100px) 0;
   color: var(--white);
 }
@@ -26,7 +26,6 @@
 .page-header h1 { margin-bottom: 1rem; color: var(--white); }
 
 .page-header p {
-  white-space: nowrap;
   line-height: 1.8;
   color: var(--white);
 }
@@ -217,6 +216,19 @@
 /* ========================================
    RESPONSIVE
    ======================================== */
+@media (max-width: 768px) {
+  .contact-section__heading {
+    text-align: center;
+    padding-left: 0;
+  }
+  .direct-contacts {
+    text-align: center;
+  }
+  .direct-contacts__list {
+    align-items: center;
+  }
+}
+
 @media (max-width: 900px) {
   .contact-section__inner {
     grid-template-columns: 1fr;
@@ -242,7 +254,7 @@
 <nav class="nav" id="mainNav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
       </a>
 

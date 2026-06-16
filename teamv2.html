@@ -39,9 +39,10 @@
 }
 
 .hero-image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
+}
+@media (min-width: 769px) {
+  .hero-image { flex: 1; clip-path: url(#clip-image-right); }
 }
 
 .hero-image img {
@@ -233,8 +234,7 @@
    ======================================== */
 @media (max-width: 768px) {
   .hero { flex-direction: column; min-height: unset; }
-  .hero-content { flex: none; padding-left: clamp(32px, 5vw, 72px); padding-bottom: 0; }
-  .hero-image { flex: none; height: 280px; clip-path: none; }
+  .hero-content { flex: none; padding-left: clamp(24px, 5vw, 48px); padding-right: clamp(24px, 5vw, 48px); padding-bottom: 0; text-align: center; align-items: center; }
 }
 
 @media (max-width: 900px) {
@@ -266,7 +266,7 @@
 <nav class="nav" id="mainNav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
       </a>
 

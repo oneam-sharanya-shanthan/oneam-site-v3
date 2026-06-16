@@ -51,9 +51,10 @@
 }
 
 .hero-image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-right);
+}
+@media (min-width: 769px) {
+  .hero-image { flex: 1; clip-path: url(#clip-image-right); }
 }
 
 .hero-image img {
@@ -247,9 +248,10 @@
 }
 
 .american-biz__image-wrap {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-image-left);
+}
+@media (min-width: 769px) {
+  .american-biz__image-wrap { flex: 1; clip-path: url(#clip-image-left); }
 }
 
 .american-biz__content {
@@ -263,7 +265,7 @@
 }
 
 .american-biz h2 {
-  margin-bottom: clamp(16px, 2vw, 24px);
+  margin-bottom: clamp(20px, 2.5vw, 28px);
 }
 
 .american-biz .section-label { color: var(--fuchsia-60); }
@@ -276,7 +278,26 @@
 
 .american-biz p:last-of-type { margin-bottom: 0; }
 
-.american-biz__cta { margin-top: clamp(28px, 3.5vw, 40px); }
+.american-biz__badges {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 28px);
+  margin-top: 1rem;
+  margin-bottom: clamp(28px, 3.5vw, 36px);
+}
+
+.american-biz__badges img {
+  height: 44px;
+  width: auto;
+  display: block;
+  border: 0;
+}
+
+.american-biz__badges a img {
+  height: 41px;
+}
+
+/* .american-biz__cta { margin-top: clamp(20px, 2.5vw, 28px); } */
 
 .american-biz__img {
   position: absolute;
@@ -287,7 +308,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right center;
+  object-position: center center;
   display: block;
 }
 
@@ -370,10 +391,10 @@
 }
 
 .final-cta__image {
-  flex: 1;
   position: relative;
-  clip-path: url(#clip-cta-right);
-  margin-left: 2%;
+}
+@media (min-width: 769px) {
+  .final-cta__image { flex: 1; margin-left: 2%; clip-path: url(#clip-cta-right); }
 }
 
 .final-cta__image img {
@@ -412,28 +433,35 @@
 
   .hero-content {
     flex: none;
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
     padding-bottom: 0;
-  }
-
-  .hero-image {
-    flex: none;
-    height: 280px;
-    clip-path: none;
+    text-align: center;
+    align-items: center;
   }
 
   .american-biz__grid { flex-direction: column; }
 
   .american-biz__image-wrap {
-    clip-path: none;
-    height: 280px;
-    order: 1;
+    flex: none;
+    height: 220px;
+    clip-path: url(#clip-image-top);
+    order: 2;
   }
 
   .american-biz__content {
     flex: none;
-    order: 2;
-    padding-right: clamp(32px, 5vw, 72px);
+    order: 1;
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
+    padding-bottom: 2rem;
+    text-align: center;
+    align-items: center;
   }
+
+  .american-biz__badges { justify-content: center; }
+
+  .american-biz__cta { margin-top: 4rem; }
 
   .final-cta__inner {
     flex-direction: column;
@@ -442,13 +470,10 @@
 
   .final-cta__content {
     flex: none;
-    padding-left: clamp(32px, 5vw, 72px);
-  }
-
-  .final-cta__image {
-    flex: none;
-    height: 280px;
-    clip-path: none;
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
+    text-align: center;
+    align-items: center;
   }
 
   .steps-path-vertical { display: none; }
@@ -493,7 +518,7 @@
 <nav class="nav" id="mainNav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
       </a>
 
@@ -603,7 +628,7 @@
 <section class="why-choose" id="why">
   <div class="container">
     <div class="why-choose-heading reveal">
-      <h2>Why businesses choose one<span style="font-weight:300">am</span></h2>
+      <h2>Why businesses choose <img src="Logo 01 Primary/OneAM-Logo-Navy-Color.svg" alt="OneAM" class="logo-inline"></h2>
     </div>
     <h3 class="why-choose-sub fuchsia reveal">Four reasons our customers stay</h3>
 
@@ -651,14 +676,19 @@
   <div class="american-biz__grid">
     <div class="american-biz__image-wrap reveal">
       <div class="american-biz__img">
-        <img src="image_assets/aerial_trucks.jpg" alt="American oil rig — OneAM serves businesses across every industry">
+        <img src="image_assets/desk.jpg" alt="American oil rig — OneAM serves businesses across every industry">
       </div>
     </div>
     <div class="american-biz__content reveal">
       <div>
-        <h2>Built for American businesses</h2>
-        <p>If your business invoices large customers and waits to get paid, oneam can help.</p>
-        <p>We've funded SMBs and founders across every industry and the cash flow gap is the same no matter what you sell. We close it on your terms.</p>
+        <h2>Trusted by American businesses</h2>
+        <p>We've funded SMBs and founders across every industry, earning the recognition to match.</p>
+        <div class="american-biz__badges">
+          <img src="image_assets/IFA Ally Member.png" alt="IFA Ally Member">
+          <a href="https://www.bbb.org/us/ny/new-york/profile/factoring-services/oneam-u-s-inc-0121-87184598/#sealclick" target="_blank" rel="nofollow">
+            <img src="https://seal-newyork.bbb.org/seals/gray-seal-293-61-whitetxt-bbb-87184598.png" alt="OneAM U.S. Inc. BBB Business Review">
+          </a>
+        </div>
         <div class="american-biz__cta">
           <a href="#industries" class="btn-light-sm">Industries we've served <span class="arrow">&rarr;</span></a>
         </div>

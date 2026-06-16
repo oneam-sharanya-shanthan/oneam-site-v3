@@ -176,12 +176,6 @@ h3.fuchsia { color: var(--fuchsia); }
   top: 0;
   z-index: 1000;
   background: var(--navy);
-  transition: border-color var(--transition-base);
-  border-bottom: 1px solid transparent;
-}
-
-.nav.scrolled {
-  border-bottom-color: var(--navy-alpha-08);
 }
 
 .nav .container {
@@ -286,6 +280,7 @@ h3.fuchsia { color: var(--fuchsia); }
   margin-top: 24px;
   text-align: center;
   justify-content: center;
+  color: var(--white);
 }
 
 
@@ -525,24 +520,25 @@ h3.fuchsia { color: var(--fuchsia); }
   font-size: 3.5rem;
   color: var(--fuchsia-60);
   line-height: 0.8;
-  margin-bottom: -0.5rem;
+  margin-top: auto;
+  margin-bottom: -0.75rem;
 }
 
 .testimonial-mark--close {
   text-align: right;
   margin-bottom: 0;
-  margin-top: -1.5rem;
+  margin-top: 0.75rem;
 }
 
 .testimonial-quote {
   font-size: var(--fs-p1);
   line-height: 1.8;
   margin-bottom: 0;
-  flex: 1;
 }
 
 .testimonial-attribution {
-  padding-top: 0rem;
+  margin-top: auto;
+  padding-top: 1rem;
   border-top: 1px solid var(--teal-alpha-15);
 }
 
@@ -782,6 +778,18 @@ h3.fuchsia { color: var(--fuchsia); }
 }
 
 
+/* ── Inline logo in headings ─────────────────────────────────────── */
+/* Use <img class="logo-inline" src="..." alt="OneAM"> inside an <h2> */
+.logo-inline {
+  display: inline-block;
+  height: 0.95em;
+  width: auto;
+  vertical-align: middle;
+  margin-left: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+
 /* ── Reduced motion ──────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -800,10 +808,13 @@ h3.fuchsia { color: var(--fuchsia); }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-cta   { display: none; }
-  .hamburger { display: flex; }
+  .nav-cta         { margin-left: auto; }
+  .nav-cta.hidden  { opacity: 1; pointer-events: auto; }
+  .nav-cta .btn-primary { padding: 8px 14px; font-size: 0.72rem; }
+  .nav-cta .arrow { display: none; }
+  .hamburger { display: flex; margin-left: 12px; }
 
-  .sticky-cta { bottom: 20px; right: 20px; }
+  .sticky-cta { display: none; }
 
   .why-grid { grid-template-columns: 1fr 1fr; }
 
@@ -814,8 +825,14 @@ h3.fuchsia { color: var(--fuchsia); }
   }
 
   .insights-v1__header { justify-content: flex-start; }
+  .insights-v1__cta   { justify-self: center; }
 
   .carousel-btn { display: none; }
+
+  .hero-image       { flex: none; height: 220px; margin-top: 1.5rem; clip-path: url(#clip-image-top); }
+  .final-cta__image { flex: none; height: 220px; margin-top: 1.5rem; clip-path: url(#clip-image-top); }
+
+  .page-header { text-align: center; }
 }
 
 

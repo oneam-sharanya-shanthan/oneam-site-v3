@@ -282,8 +282,36 @@
   }
 
 
+  /* ── Mobile clip-path injection ─────────────────────────────── */
+
+  function initClipPaths() {
+    var ns = 'http://www.w3.org/2000/svg';
+    if (document.getElementById('clip-image-top')) return;
+    var defs = document.querySelector('svg defs');
+    if (!defs) {
+      var svg = document.createElementNS(ns, 'svg');
+      svg.setAttribute('width', '0');
+      svg.setAttribute('height', '0');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.setAttribute('focusable', 'false');
+      svg.style.cssText = 'position:absolute;overflow:visible';
+      defs = document.createElementNS(ns, 'defs');
+      svg.appendChild(defs);
+      document.body.insertBefore(svg, document.body.firstChild);
+    }
+    var clip = document.createElementNS(ns, 'clipPath');
+    clip.setAttribute('id', 'clip-image-top');
+    clip.setAttribute('clipPathUnits', 'objectBoundingBox');
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M 0,0 Q 0.5,0.2 1,0 L 1,1 L 0,1 Z');
+    clip.appendChild(path);
+    defs.appendChild(clip);
+  }
+
+
   /* ── Boot ────────────────────────────────────────────────────── */
 
+  initClipPaths();
   initNav();
   initHamburger();
   initReveal();
