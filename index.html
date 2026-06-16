@@ -280,10 +280,10 @@
 
 .american-biz__badges {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(16px, 2vw, 28px);
   margin-top: 1rem;
-  margin-bottom: clamp(28px, 3.5vw, 36px);
+  margin-bottom: clamp(40px, 5vw, 52px);
 }
 
 .american-biz__badges img {
@@ -293,8 +293,9 @@
   border: 0;
 }
 
-.american-biz__badges a img {
-  height: 41px;
+.american-biz__badges .bbb-badge {
+  height: 64px;
+  border-radius: 4px;
 }
 
 /* .american-biz__cta { margin-top: clamp(20px, 2.5vw, 28px); } */
@@ -521,7 +522,6 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="Resources.html">Resources</a></li>
@@ -544,7 +544,6 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="industries.html">Industries</a>
   <a href="Resources.html">Resources</a>
@@ -680,12 +679,12 @@
     <div class="american-biz__content reveal">
       <div>
         <h2>Trusted by American businesses</h2>
-        <p>We've funded SMBs and founders across every industry, earning the recognition to match.</p>
+        <p>We've delivered millions in funding to businesses in just about every industry, earning the recognition to match.</p>
         <div class="american-biz__badges">
-          <img src="image_assets/IFA Ally Member.png" alt="IFA Ally Member">
-          <a href="https://www.bbb.org/us/ny/new-york/profile/factoring-services/oneam-u-s-inc-0121-87184598/#sealclick" target="_blank" rel="nofollow">
-            <img src="https://seal-newyork.bbb.org/seals/gray-seal-293-61-whitetxt-bbb-87184598.png" alt="OneAM U.S. Inc. BBB Business Review">
+          <a href="https://www.bbb.org/us/ny/new-york/profile/factoring-services/oneam-u-s-inc-0121-87184598/#sealclick" target="_blank" rel="nofollow noopener">
+            <img src="https://blue.bbb.org/Files/NYC/Public/ABOnly/Images/AB%20Seals%20for%20Print/accred_bus_black.jpg" alt="BBB Accredited Business" class="bbb-badge">
           </a>
+          <img src="image_assets/IFA Ally Member.png" alt="IFA Ally Member">
         </div>
         <div class="american-biz__cta">
           <a href="#industries" class="btn-light-sm">Industries we've served <span class="arrow">&rarr;</span></a>

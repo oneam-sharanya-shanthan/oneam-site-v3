@@ -175,21 +175,54 @@
 
 
 /* ========================================
-   FINAL CTA
+   TEAM CTA — white
    ======================================== */
-.final-cta {
+.team-cta {
   background: var(--white);
-  padding: var(--section-pad) 0;
-  text-align: center;
 }
 
-.final-cta h2 { margin-bottom: 1rem; }
+.team-cta__inner {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  min-height: 80vh;
+}
 
-.final-cta .cta-subtext {
-  font-size: var(--fs-p1);
-  line-height: 1.8;
-  color: var(--navy);
-  margin: 0 0 2rem;
+.team-cta__content {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--section-pad-sm) clamp(32px, 5vw, 72px);
+  padding-left: clamp(80px, 8vw, 140px);
+  padding-right: clamp(16px, 2vw, 32px);
+}
+
+.team-cta__content h2 {
+  margin-bottom: 1rem;
+}
+
+.team-cta__content p {
+  max-width: 440px;
+  margin-bottom: 2rem;
+}
+
+.team-cta__image {
+  position: relative;
+  margin-left: 0%;
+}
+@media (min-width: 769px) {
+  .team-cta__image { flex: 1; clip-path: url(#clip-cta-right); }
+}
+
+.team-cta__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 /* ========================================
@@ -199,12 +232,50 @@
   .team-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+@media (max-width: 768px) {
+  .team-cta__inner {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .team-cta__content {
+    flex: none;
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
+    padding-bottom: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .team-cta__image {
+    flex: none;
+    height: 220px;
+    margin-top: 1.5rem;
+    clip-path: url(#clip-image-top);
+  }
+}
+
 @media (max-width: 640px) {
   .team-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 </head>
 <body>
+
+<!-- Clip-path definitions -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:visible">
+  <defs>
+    <clipPath id="clip-image-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.3,0.5 0,0 Z"/>
+    </clipPath>
+    <clipPath id="clip-image-left" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 Q 0.7,0.5 1,1 L 0,1 Z"/>
+    </clipPath>
+    <clipPath id="clip-cta-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.25,0.5 0,0 Z"/>
+    </clipPath>
+  </defs>
+</svg>
 
 <!-- =============================================
      NAVIGATION
@@ -217,7 +288,6 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="Resources.html">Resources</a></li>
@@ -240,7 +310,6 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="industries.html">Industries</a>
   <a href="Resources.html">Resources</a>
@@ -254,8 +323,7 @@
      ============================================= -->
 <section class="page-header">
   <div class="container reveal">
-    <h1>Builders, operators, and the people behind the new industry standard</h1>
-    <p>The OneAM team brings decades of experience across finance and technology.</p>
+    <h1>Decades of experience across finance and technology</h1>
   </div>
 </section>
 
@@ -316,13 +384,17 @@
 </section>
 
 <!-- =============================================
-     FINAL CTA
+     TEAM CTA
      ============================================= -->
-<section class="final-cta" id="get-started">
-  <div class="container reveal">
-    <h2>Want to talk to someone on the team?</h2>
-    <p class="cta-subtext">Book a demo or reach out directly.</p>
-    <a href="#" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+<section class="team-cta" id="get-started">
+  <div class="team-cta__inner reveal">
+    <div class="team-cta__content">
+      <h2>Read about our origin story</h2>
+      <a href="https://www.oneam.us/resources/oneam-the-origin-story" class="btn-primary" target="_blank" rel="noopener">Our story<span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="team-cta__image" aria-hidden="true">
+      <img src="image_assets/origin.jpg" alt="">
+    </div>
   </div>
 </section>
 

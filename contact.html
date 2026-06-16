@@ -18,40 +18,15 @@
 .page-header {
   background:
     linear-gradient(rgba(20, 20, 60, 0.85), rgba(20, 20, 60, 0.85)),
-    url('image_assets/aerial_planes.jpg') center / cover no-repeat;
+    url('image_assets/machine.jpg') center / cover no-repeat;
   padding: clamp(60px, 9vw, 100px) 0;
   color: var(--white);
 }
 
 .page-header h1 { margin-bottom: 1rem; color: var(--white); }
-
 .page-header p {
   line-height: 1.8;
   color: var(--white);
-}
-
-/* ========================================
-   DEMO CTA SECTION
-   ======================================== */
-.demo-cta {
-  background: var(--white);
-  padding: var(--section-pad) 0;
-  text-align: center;
-}
-
-.demo-cta h2 {
-  margin-bottom: 0.75rem;
-}
-
-.demo-cta .demo-cta__sub {
-  color: var(--fuchsia);
-  margin-bottom: 2rem;
-}
-
-.demo-cta .demo-cta__body {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  color: var(--navy);
 }
 
 /* ========================================
@@ -71,9 +46,10 @@
 }
 
 .contact-section__heading {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 1;
-  padding-left: clamp(28px, 4vw, 48px);
+  text-align: center;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
 }
 
 .contact-form-card {
@@ -86,16 +62,6 @@
   grid-row: 2;
   margin-top: 0;
   padding-top: clamp(28px, 4vw, 48px);
-}
-
-/* Left column */
-.contact-section__heading h2 {
-  margin-bottom: 0.5rem;
-}
-
-.contact-section__heading .contact-sub {
-  color: var(--navy);
-  margin-bottom: 0;
 }
 
 .direct-contacts__label {
@@ -217,10 +183,6 @@
    RESPONSIVE
    ======================================== */
 @media (max-width: 768px) {
-  .contact-section__heading {
-    text-align: center;
-    padding-left: 0;
-  }
   .direct-contacts {
     text-align: center;
   }
@@ -238,11 +200,6 @@
   .direct-contacts   { grid-column: 1; grid-row: 3; }
 }
 
-@media (max-width: 640px) {
-  .demo-cta .demo-cta__body {
-    max-width: 100%;
-  }
-}
 </style>
 </head>
 <body>
@@ -259,7 +216,6 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="Resources.html">Resources</a></li>
@@ -282,7 +238,6 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="industries.html">Industries</a>
   <a href="Resources.html">Resources</a>
@@ -302,28 +257,15 @@
 </section>
 
 <!-- =============================================
-     DEMO CTA
-     ============================================= -->
-<section class="demo-cta">
-  <div class="container reveal">
-    <h2>Book a 15-minute demo</h2>
-    <h3 class="demo-cta__sub">For businesses interested in OneAM.</h3>
-    <p class="demo-cta__body">Tell us a bit about your business and we'll walk you through how OneAM works in 15 minutes. No prep needed.</p>
-    <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
-  </div>
-</section>
-
-<!-- =============================================
      CONTACT FORM
      ============================================= -->
 <section class="contact-section">
   <div class="container">
     <div class="contact-section__inner">
 
-      <!-- Left row 1: heading + subtitle -->
+      <!-- Left row 1: heading -->
       <div class="contact-section__heading reveal">
-        <h2>Or send us a message</h2>
-        <p class="contact-sub">For everything else.</p>
+        <h2>Send us a message</h2>
       </div>
 
       <!-- Left row 2: form card -->
