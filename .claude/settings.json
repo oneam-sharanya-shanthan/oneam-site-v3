@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(python3 -)",
+      "Bash(curl -s \"https://static1.squarespace.com/static/versioned-site-css/6731da7e7138e16f52f9a6ca/320/5c5a519771c10ba3470d8101/6731da7e7138e16f52f9a6d2/1805/site.css?nocustom=true\" -o site.css)",
+      "Bash(curl -s \"https://static1.squarespace.com/static/custom-css/6731da7e7138e16f52f9a6ca/6731da7e7138e16f52f9a6d2/21/custom.css\" -o custom.css)"
     ]
   }
 }
