@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press &amp; Media — OneAM</title>
+<meta name="description" content="The latest news, announcements, and perspectives from the team helping businesses get paid early.">
+<link rel="stylesheet" href="brand.css">
+<link rel="stylesheet" href="components.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+  background:
+    linear-gradient(rgba(20, 20, 60, 0.85), rgba(20, 20, 60, 0.85)),
+    url('image_assets/machine.jpg') center / cover no-repeat;
+  padding: clamp(60px, 9vw, 100px) 0;
+  color: var(--white);
+}
+
+.page-header h1 { margin-bottom: 1rem; color: var(--white); }
+.page-header p {
+  line-height: 1.8;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   COMPANY ANNOUNCEMENT — split, image right (from about.html .team-cta)
+   ======================================== */
+.team-cta { background: var(--white); }
+
+.team-cta__inner {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  min-height: 80vh;
+}
+
+.team-cta__content {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--section-pad-sm) clamp(32px, 5vw, 72px);
+  padding-left: clamp(80px, 8vw, 140px);
+  padding-right: clamp(16px, 2vw, 32px);
+}
+
+.team-cta__content h2 { margin-bottom: 0.75rem; }
+.team-cta__content h3 { margin-bottom: 1.5rem; }
+
+.team-cta__content p {
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.team-cta__image { position: relative; }
+
+@media (min-width: 769px) {
+  .team-cta__image { flex: 1; clip-path: url(#clip-cta-right); }
+}
+
+.team-cta__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+}
+
+/* ========================================
+   CARDS — news + blog (extends .insights-v1)
+   ======================================== */
+.press-news { background: var(--color-bg-subtle); }
+
+/* Article photo with the outlet name overlaid */
+.press-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.press-news .press-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.press-photo__name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.6rem 1rem;
+  background: var(--navy);
+  font-family: var(--font-brand);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-p2);
+  color: var(--white);
+  text-align: center;
+}
+
+.press-news .insights-v1__card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .press-news .insights-v1__inner { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .press-news .insights-v1__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ========================================
+   IN THE NEWS — logo list (option B)
+   ======================================== */
+.press-logos {
+  padding: var(--section-pad-sm) 0;
+  background: var(--color-bg-subtle);
+}
+
+.press-logos__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.press-logos h2 { margin-bottom: clamp(24px, 3vw, 36px); }
+
+.press-list {
+  list-style: none;
+  border-top: 1px solid var(--gray-20);
+}
+
+.press-list li { border-bottom: 1px solid var(--gray-20); }
+
+.press-list__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  padding: clamp(18px, 2.4vw, 26px) 0;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.press-list__logo {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+}
+
+.press-list__logo img {
+  max-width: 130px;
+  max-height: 34px;
+  width: auto;
+  height: auto;
+  display: block;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: filter var(--transition-base), opacity var(--transition-base);
+}
+
+.press-list__title {
+  flex: 1;
+  font-family: var(--font-brand);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  transition: color var(--transition-base);
+}
+
+.press-list__arrow {
+  font-family: var(--font-ui);
+  color: var(--fuchsia);
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.press-list__row:hover .press-list__logo img { filter: none; opacity: 1; }
+.press-list__row:hover .press-list__title,
+.press-list__row:hover .press-list__arrow { color: var(--fuchsia); }
+.press-list__row:hover .press-list__arrow { transform: translateX(4px); }
+
+/* TEMP — marks where the option B sections start; delete once a version is chosen */
+.temp-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 clamp(20px, 4vw, 40px);
+  background: var(--white);
+  border-top: 3px dashed var(--fuchsia);
+  border-bottom: 3px dashed var(--fuchsia);
+  height: 44px;
+  font-family: var(--font-ui);
+  font-weight: var(--fw-medium);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fuchsia);
+}
+
+/* ========================================
+   INDUSTRY INSIGHTS — spotlight + blog (option B)
+   ======================================== */
+.press-insights { background: var(--navy); }
+
+.section-dark .insights-v1__card-title { color: var(--navy); }
+
+.press-insights .insights-v1__header h2 { white-space: normal; }
+
+.press-insights .insights-v1__card-img {
+  padding: 12px 12px 0;
+  background: var(--white);
+}
+
+.press-insights .insights-v1__card-img img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Op-ed feature — text left, chart right, directly on navy */
+.press-feature {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.section-dark .press-feature__source {
+  color: var(--fuchsia);
+  font-weight: var(--fw-medium);
+  margin-bottom: 0.75rem;
+}
+
+.section-dark .press-feature__title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+.press-feature__image {
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  justify-self: end;
+  padding: 0 40px;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-navy-md);
+  transition: transform var(--transition-base);
+}
+
+.press-feature__image:hover { transform: translateY(-2px); }
+
+.press-feature__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.press-insights__sub {
+  grid-column: 1 / -1;
+  margin-top: clamp(16px, 3vw, 32px);
+}
+
+.press-insights__sub h3 { margin-bottom: 0.5rem; }
+
+/* ========================================
+   MEDIA INQUIRIES — split, image right (from index.html .final-cta)
+   ======================================== */
+.final-cta { background: var(--white); }
+
+.final-cta__inner {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  min-height: 80vh;
+}
+
+.final-cta__content {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--section-pad-sm) clamp(32px, 5vw, 72px);
+  padding-left: max(
+    calc((100vw - var(--max-width)) / 2 + clamp(20px, 4vw, 40px)),
+    clamp(32px, 5vw, 72px)
+  );
+}
+
+.final-cta__image { position: relative; }
+
+@media (min-width: 769px) {
+  .final-cta__image { flex: 1; margin-left: 2%; clip-path: url(#clip-cta-right); }
+}
+
+.final-cta__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.final-cta h2 {
+  margin-bottom: 1.5rem;
+  max-width: 520px;
+}
+
+.final-cta .cta-subtext {
+  font-size: var(--fs-p1);
+  line-height: 1.8;
+  color: var(--navy);
+  max-width: 520px;
+  margin: 0 0 2rem;
+}
+
+/* ========================================
+   RESPONSIVE — 768px
+   ======================================== */
+@media (max-width: 768px) {
+  .team-cta__inner,
+  .final-cta__inner {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .team-cta__content,
+  .final-cta__content {
+    flex: none;
+    padding-left: clamp(24px, 5vw, 48px);
+    padding-right: clamp(24px, 5vw, 48px);
+    text-align: center;
+    align-items: center;
+  }
+
+  .team-cta__content { padding-bottom: 0; }
+
+  .team-cta__image {
+    flex: none;
+    height: 220px;
+    margin-top: 1.5rem;
+    clip-path: url(#clip-image-top);
+  }
+
+  .page-header p { margin-left: auto; margin-right: auto; }
+
+  .press-list__row { flex-direction: column; align-items: center; text-align: center; gap: 0.75rem; }
+  .press-list__logo { flex: none; justify-content: center; }
+  .press-list__arrow { display: none; }
+  .press-logos h2 { text-align: center; }
+  .press-insights__sub { text-align: center; }
+  .press-feature { grid-template-columns: 1fr; text-align: center; }
+  .press-feature__image { justify-self: center; }
+  .press-insights__sub p { margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- Clip-path definitions -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:visible">
+  <defs>
+    <clipPath id="clip-image-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.3,0.5 0,0 Z"/>
+    </clipPath>
+    <clipPath id="clip-image-left" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 Q 0.7,0.5 1,1 L 0,1 Z"/>
+    </clipPath>
+    <clipPath id="clip-cta-right" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0 L 1,0 L 1,1 L 0,1 Q 0.25,0.5 0,0 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
+      </a>
+
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
+          <ul class="nav-dropdown">
+            <li><a href="team.html">Team</a></li>
+            <li><a href="industries.html">Industries</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="Resources.html">Resources</a>
+          <ul class="nav-dropdown">
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="press.html" aria-current="page">Press</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about.html">About</a>
+  <a href="team.html" class="mobile-sub">Team</a>
+  <a href="industries.html" class="mobile-sub">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="insights.html" class="mobile-sub">Insights</a>
+  <a href="press.html" class="mobile-sub" aria-current="page">Press</a>
+  <a href="contact.html">Contact</a>
+  <a href="#">Sign In</a>
+  <a href="index.html#get-started" class="btn-primary">Book a demo</a>
+</div>
+
+<!-- =============================================
+     PAGE HEADER
+     ============================================= -->
+<section class="page-header">
+  <div class="container reveal">
+    <h1>Press &amp; Media</h1>
+    <p>The latest news, announcements, and perspectives from the team helping businesses get paid early.</p>
+    <a href="mailto:marketing@oneam.us" class="btn-light-sm">Contact our team</a>
+  </div>
+</section>
+
+<!-- =============================================
+     COMPANY ANNOUNCEMENTS — white, image right
+     ============================================= -->
+<section class="team-cta" id="announcements">
+  <div class="team-cta__inner reveal">
+    <div class="team-cta__content">
+      <h2>Company Announcements</h2>
+      <h3 class="fuchsia">Press release - October 2025</h3>
+      <p>The round, led by TTV Capital, funds the expansion of OneAM's early pay platform, bringing advanced underwriting and institutional capital to small and midsize suppliers.</p>
+      <a href="https://oneam.reportablenews.com/pr/oneam-raises-4-7-million-in-seed-funding-to-unlock-the-4-trillion-early-pay-market-for-small-and-midsize-suppliers" class="btn-primary" target="_blank" rel="noopener">Read press release</a>
+    </div>
+    <div class="team-cta__image" aria-hidden="true">
+      <img src="image_assets/McCormick-3092.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     ONEAM IN THE NEWS — parchment, 4 cards
+     ============================================= -->
+<section class="insights-v1 press-news" id="news">
+  <div class="container">
+    <div class="insights-v1__inner">
+      <div class="insights-v1__header reveal">
+        <h2>OneAM in the News</h2>
+      </div>
+
+      <a href="https://www.thisweekinfintech.com/p/oneam-lands-4-7m-seed-round-led-by-ttv-to-grow-early-pay-platform/" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img press-photo"><img src="image_assets/press-founders.jpg" alt="OneAM co-founders Ksusha McCormick and Charlotte Ng"><span class="press-photo__name">This Week in Fintech</span></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">OneAM Lands $4.7M Seed Round Led by TTV To Grow &lsquo;Early Pay&rsquo; Platform</p>
+        </div>
+      </a>
+
+      <a href="https://www.axios.com/newsletters/axios-pro-rata-9fdda3ea-aa52-4298-a5a0-ffa79feb184d.html" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img press-photo"><img src="image_assets/press-axios.png" alt=""><span class="press-photo__name">Axios Pro Rata</span></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">Top of the Morning (Oct 24, 2025)</p>
+        </div>
+      </a>
+
+      <a href="https://newsletter.strictlyvc.com/p/trump-pardons-binance-founder" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img press-photo"><img src="image_assets/press-strictlyvc.png" alt=""><span class="press-photo__name">StrictlyVC</span></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">Trump Pardons Binance Founder</p>
+        </div>
+      </a>
+
+      <a href="https://finance.yahoo.com/news/oneam-raises-4-7-million-132500368.html" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img press-photo"><img src="image_assets/press-founders.jpg" alt="OneAM co-founders Ksusha McCormick and Charlotte Ng"><span class="press-photo__name">Yahoo Finance</span></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">OneAM Raises $4.7 Million in Seed Funding to Unlock the $4 Trillion Early Pay Market for Small and Midsize Suppliers</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEMP divider -->
+<div class="temp-divider" aria-hidden="true">&darr; Option B: In the News (logo list)</div>
+
+<!-- =============================================
+     ONEAM IN THE NEWS — OPTION B: logo list, parchment
+     ============================================= -->
+<section class="press-logos" id="news-logos">
+  <div class="container">
+    <div class="press-logos__inner reveal">
+      <h2>OneAM in the News</h2>
+      <ul class="press-list">
+        <li>
+          <a href="https://www.thisweekinfintech.com/p/oneam-lands-4-7m-seed-round-led-by-ttv-to-grow-early-pay-platform/" class="press-list__row" target="_blank" rel="noopener">
+            <span class="press-list__logo"><img src="image_assets/press-logos/twif.png" alt="This Week in Fintech"></span>
+            <span class="press-list__title">OneAM Lands $4.7M Seed Round Led by TTV To Grow &lsquo;Early Pay&rsquo; Platform</span>
+            <span class="press-list__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.axios.com/newsletters/axios-pro-rata-9fdda3ea-aa52-4298-a5a0-ffa79feb184d.html" class="press-list__row" target="_blank" rel="noopener">
+            <span class="press-list__logo"><img src="image_assets/press-logos/axios.svg" alt="Axios Pro Rata"></span>
+            <span class="press-list__title">Top of the Morning (Oct 24, 2025)</span>
+            <span class="press-list__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://newsletter.strictlyvc.com/p/trump-pardons-binance-founder" class="press-list__row" target="_blank" rel="noopener">
+            <span class="press-list__logo"><img src="image_assets/press-logos/strictlyvc.png" alt="StrictlyVC"></span>
+            <span class="press-list__title">Trump Pardons Binance Founder</span>
+            <span class="press-list__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://finance.yahoo.com/news/oneam-raises-4-7-million-132500368.html" class="press-list__row" target="_blank" rel="noopener">
+            <span class="press-list__logo"><img src="image_assets/press-logos/yahoo-finance.png" alt="Yahoo Finance"></span>
+            <span class="press-list__title">OneAM Raises $4.7 Million in Seed Funding to Unlock the $4 Trillion Early Pay Market for Small and Midsize Suppliers</span>
+            <span class="press-list__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     INDUSTRY INSIGHTS — spotlight + blog, navy
+     ============================================= -->
+<section class="insights-v1 press-insights section-dark" id="insights">
+  <div class="container">
+    <div class="insights-v1__inner">
+      <div class="insights-v1__header reveal">
+        <h2>Industry Insights</h2>
+      </div>
+
+      <div class="press-feature reveal">
+        <div class="press-feature__text">
+          <p class="press-feature__source">American Banker &middot; October 2026</p>
+          <h3 class="press-feature__title">The SBA Citizenship Rule Can Shut Out Borrowers Who Still Qualify</h3>
+          <a href="https://www.americanbanker.com/author/charlotte-ng" class="btn-light-sm" target="_blank" rel="noopener">Read the op-ed</a>
+        </div>
+        <a href="https://www.americanbanker.com/author/charlotte-ng" class="press-feature__image" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="image_assets/press-oped.png" alt="">
+        </a>
+      </div>
+
+      <div class="press-insights__sub reveal">
+        <h3>From the OneAM blog</h3>
+        <p>More perspectives from the team on cash flow, credit access, and the real cost of working capital.</p>
+      </div>
+
+      <a href="https://www.oneam.us/insights/navigating-small-business-credit-gap" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img"><img src="image_assets/blog/navigating-small-business-credit-gap.jpg" alt="Navigating the Small Business Credit Gap"></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">Navigating the Small Business Credit Gap: What the Fed's Latest Data Tells Us</p>
+        </div>
+      </a>
+
+      <a href="https://www.oneam.us/insights/heres-why-your-working-capital-costs-keep-rising" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img"><img src="image_assets/blog/working-capital-costs-keep-rising.jpg" alt="Why Your Working Capital Costs Keep Rising"></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">If You Sell to Enterprise Customers, Here's Why Your Working Capital Costs Keep Rising</p>
+        </div>
+      </a>
+
+      <a href="https://www.oneam.us/insights/to-business-is-human" class="insights-v1__card reveal-stagger" target="_blank" rel="noopener">
+        <div class="insights-v1__card-img"><img src="image_assets/blog/to-business-is-human.jpg" alt="The OneAM team"></div>
+        <div class="insights-v1__card-body">
+          <p class="insights-v1__card-title">To Business is Human</p>
+        </div>
+      </a>
+
+      <a href="insights.html" class="btn-light-sm insights-v1__cta reveal">Read all insights</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     MEDIA INQUIRIES — split, image right
+     ============================================= -->
+<section class="final-cta" id="media">
+  <div class="final-cta__inner">
+    <div class="final-cta__content">
+      <h2>Media Inquiries</h2>
+      <p class="cta-subtext">For interviews, company information, or to connect with OneAM's founders, contact our press team. We aim to respond within one business day.</p>
+      <a href="mailto:marketing@oneam.us" class="btn-primary">marketing@oneam.us</a>
+    </div>
+    <div class="final-cta__image" aria-hidden="true">
+      <img src="image_assets/aerial_planes.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" class="footer-logo">
+    <p class="footer-tagline">The new industry standard for early pay. Built to fund your operations and fuel your growth.</p>
+
+    <div class="footer-links">
+      <a href="about.html">About</a><span class="footer-sep">&middot;</span>
+      <a href="industries.html">Industries</a><span class="footer-sep">&middot;</span>
+      <a href="Resources.html">Resources</a><span class="footer-sep">&middot;</span>
+      <a href="insights.html">Insights</a><span class="footer-sep">&middot;</span>
+      <a href="#">Team</a><span class="footer-sep">&middot;</span>
+      <a href="#">Contact</a><span class="footer-sep">&middot;</span>
+      <a href="#">Privacy</a><span class="footer-sep">&middot;</span>
+      <a href="#">Terms</a>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:info@oneam.us">info@oneam.us</a><span class="footer-sep">&middot;</span>
+      <span>New York, NY</span><span class="footer-sep">&middot;</span>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 OneAM. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="components.js"></script>
+
+</body>
+</html>

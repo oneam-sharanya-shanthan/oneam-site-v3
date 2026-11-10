@@ -72,18 +72,24 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="Resources.html">Resources</a></li>
-        <li><a href="insights.html">Insights</a></li>
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
+          <ul class="nav-dropdown">
+            <li><a href="team.html">Team</a></li>
+            <li><a href="industries.html">Industries</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="Resources.html">Resources</a>
+          <ul class="nav-dropdown">
+            <li><a href="insights.html" aria-current="page">Insights</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#">Sign In</a></li>
       </ul>
 
-      <div class="nav-cta" id="navCta">
-        <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
-      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
@@ -96,12 +102,14 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="industries.html">Industries</a>
+  <a href="team.html" class="mobile-sub">Team</a>
+  <a href="industries.html" class="mobile-sub">Industries</a>
   <a href="Resources.html">Resources</a>
-  <a href="insights.html">Insights</a>
+  <a href="insights.html" class="mobile-sub" aria-current="page">Insights</a>
+  <a href="press.html" class="mobile-sub">Press</a>
   <a href="contact.html">Contact</a>
-  <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+  <a href="#">Sign In</a>
+  <a href="#get-started" class="btn-primary">Book a demo</a>
 </div>
 
 <!-- =============================================
@@ -222,7 +230,7 @@
       </a>
 
       <div class="load-more-wrap">
-        <button class="btn-secondary-sm" id="loadMoreBtn">Load more <span class="arrow">&darr;</span></button>
+        <button class="btn-secondary-sm" id="loadMoreBtn">Load more</button>
       </div>
 
     </div>

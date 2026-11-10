@@ -320,13 +320,6 @@ a {
   transition: transform var(--transition-base, 0.3s ease);
 }
 
-.btn-primary:hover .arrow,
-.btn-secondary:hover .arrow,
-.btn-secondary-sm:hover .arrow,
-.btn-light-sm:hover .arrow {
-  transform: translateX(4px);
-}
-
 a:hover {
   color: var(--navy);
 }

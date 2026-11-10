@@ -355,17 +355,23 @@
         <img src="Logo 01 Primary/OneAM-Logo-White-Color.svg" alt="OneAM" width="120" height="30">
       </a>
       <ul class="nav-links">
-        <li><a href="about.html" aria-current="page">About</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="Resources.html">Resources</a></li>
-        <li><a href="insights.html">Insights</a></li>
+        <li class="has-dropdown">
+          <a href="about.html" aria-current="page">About</a>
+          <ul class="nav-dropdown">
+            <li><a href="team.html">Team</a></li>
+            <li><a href="industries.html">Industries</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="Resources.html">Resources</a>
+          <ul class="nav-dropdown">
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#">Sign In</a></li>
       </ul>
-      <div class="nav-cta" id="navCta">
-        <a href="index.html#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
-      </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -374,13 +380,15 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="industries.html">Industries</a>
+  <a href="about.html" aria-current="page">About</a>
+  <a href="team.html" class="mobile-sub">Team</a>
+  <a href="industries.html" class="mobile-sub">Industries</a>
   <a href="Resources.html">Resources</a>
-  <a href="insights.html">Insights</a>
+  <a href="insights.html" class="mobile-sub">Insights</a>
+  <a href="press.html" class="mobile-sub">Press</a>
   <a href="contact.html">Contact</a>
-  <a href="index.html#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+  <a href="#">Sign In</a>
+  <a href="index.html#get-started" class="btn-primary">Book a demo</a>
 </div>
 
 <!-- =============================================
@@ -519,7 +527,7 @@
     <div class="team-cta__content">
       <h2>Meet the <img src="Logo 01 Primary/OneAM-Logo-Navy-Color.svg" alt="OneAM" class="logo-inline" style="margin-right:0.15em"> team</h2>
       <p>The people behind the platform.</p>
-      <a href="team.html" class="btn-primary">Meet the team <span class="arrow">&rarr;</span></a>
+      <a href="team.html" class="btn-primary">Meet the team</a>
     </div>
     <div class="team-cta__image" aria-hidden="true">
       <img src="image_assets/McCormick-3170.jpg" alt="">
@@ -558,7 +566,7 @@
   </div>
 </footer>
 
-<a href="index.html#get-started" class="btn-primary sticky-cta" id="stickyCta">Book a demo <span class="arrow">&rarr;</span></a>
+<a href="index.html#get-started" class="btn-primary sticky-cta" id="stickyCta">Book a demo</a>
 
 <script src="components.js"></script>
 

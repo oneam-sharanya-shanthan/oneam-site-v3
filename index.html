@@ -522,18 +522,24 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="Resources.html">Resources</a></li>
-        <li><a href="insights.html">Insights</a></li>
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
+          <ul class="nav-dropdown">
+            <li><a href="team.html">Team</a></li>
+            <li><a href="industries.html">Industries</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="Resources.html">Resources</a>
+          <ul class="nav-dropdown">
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#">Sign In</a></li>
       </ul>
 
-      <div class="nav-cta" id="navCta">
-        <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
-      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
@@ -546,12 +552,14 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="industries.html">Industries</a>
+  <a href="team.html" class="mobile-sub">Team</a>
+  <a href="industries.html" class="mobile-sub">Industries</a>
   <a href="Resources.html">Resources</a>
-  <a href="insights.html">Insights</a>
+  <a href="insights.html" class="mobile-sub">Insights</a>
+  <a href="press.html" class="mobile-sub">Press</a>
   <a href="contact.html">Contact</a>
-  <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+  <a href="#">Sign In</a>
+  <a href="#get-started" class="btn-primary">Book a demo</a>
 </div>
 
 <!-- =============================================
@@ -563,7 +571,7 @@
     <h3 class="hero-lead">Finally, an easy way to get paid early on your invoices</h3>
     <p>OneAM was built to fund your operations and fuel your growth. We connect SMBs and founders selling receivables with sophisticated institutional investors — a faster, more business-friendly alternative to traditional factoring.</p>
     <div class="hero-ctas">
-      <a href="#get-started" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+      <a href="#get-started" class="btn-primary">Book a demo</a>
     </div>
   </div>
   <div class="hero-image" aria-hidden="true">
@@ -616,7 +624,7 @@
     </div>
 
     <div class="how-it-works-cta reveal">
-      <a href="#get-started" class="btn-secondary-sm">See it in action <span class="arrow">&rarr;</span></a>
+      <a href="#get-started" class="btn-secondary-sm">See it in action</a>
     </div>
   </div>
 </section>
@@ -689,7 +697,7 @@
           <img src="image_assets/IFA Ally Member.png" alt="IFA Ally Member">
         </div>
         <div class="american-biz__cta">
-          <a href="#industries" class="btn-light-sm">Industries we've served <span class="arrow">&rarr;</span></a>
+          <a href="#industries" class="btn-light-sm">Industries we've served</a>
         </div>
       </div>
     </div>
@@ -872,7 +880,7 @@
         </div>
       </div>
 
-      <a href="resources.html" class="btn-secondary-sm">More Resources <span class="arrow">&rarr;</span></a>
+      <a href="resources.html" class="btn-secondary-sm">More Resources</a>
     </div>
   </div>
 </section>
@@ -914,7 +922,7 @@
         </div>
       </a>
 
-      <a href="insights.html" class="btn-secondary-sm insights-v1__cta reveal">More insights <span class="arrow">&rarr;</span></a>
+      <a href="insights.html" class="btn-secondary-sm insights-v1__cta reveal">More insights</a>
     </div>
   </div>
 </section>
@@ -930,7 +938,7 @@
     <div class="final-cta__content">
       <h2>Ready to get paid early?</h2>
       <p class="cta-subtext">Book a 15-minute demo and see how OneAM works for your business.</p>
-      <a href="#" class="btn-primary">Book a demo <span class="arrow">&rarr;</span></a>
+      <a href="#" class="btn-primary">Book a demo</a>
     </div>
     <div class="final-cta__image" aria-hidden="true">
       <img src="image_assets/parcels.jpg" alt="">
@@ -969,7 +977,7 @@
   </div>
 </footer>
 
-<a href="#get-started" class="btn-primary sticky-cta" id="stickyCta">Book a demo <span class="arrow">&rarr;</span></a>
+<a href="#get-started" class="btn-primary sticky-cta" id="stickyCta">Book a demo</a>
 
 <script src="components.js"></script>
 
